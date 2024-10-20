@@ -1,15 +1,16 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HumanGasExchange from './routes/humanGasExchange';
+import BloodO2PressureAnalysis from './routes/bloodO2PressureAnalysis';
+import Home from './routes/home';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <>Root</>
+    element: <Home />
   },
   {
-    path: "/human/gas-exchange", // need to change path name to a more better one
-    element: <HumanGasExchange />
+    path: "/analysis/blood-o2-pressure-analysis", // need to change path name to a more better one
+    element: <BloodO2PressureAnalysis />
   },
 ]);
 
