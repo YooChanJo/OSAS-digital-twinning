@@ -10,6 +10,10 @@ export default function BloodO2PressureAnalysis() {
     }
     const onFormSubmit = (e) => {
         e.preventDefault();
+        const Pv = e.target[0].value;
+        const Part = e.target[1].value;
+        const betRel = e.target[2].value;
+
 
 
         console.log("form successfully submited");
@@ -23,8 +27,8 @@ export default function BloodO2PressureAnalysis() {
             <input id="Pv" type="number" defaultValue={40}></input><br />
             <label htmlFor="Part">Initial O2 pressure of the arterial blood (mmHg) - (cycle 0)</label><br />
             <input id="Part" type="number" defaultValue={100}></input><br />
-            <label htmlFor="Pbet">Initial O2 pressure of the blood between (mmHg) - (cycle 0)</label><br />
-            <select id="Pbet">
+            <label htmlFor="between-relationship">Initial O2 pressure of the blood between (relationship) - (cycle 0)</label><br />
+            <select id="between-relationship">
                 <option value="linear">linear</option>
             </select><br />
             <label htmlFor="Vr">Volume of residue (L)</label><br />
