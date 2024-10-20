@@ -8,8 +8,11 @@ export default function BloodO2PressureAnalysis() {
     const onBackToHomeClick = () => {
         navigate("/");
     }
-    const onFormSubmit = () => {
+    const onFormSubmit = (e) => {
+        e.preventDefault();
 
+
+        console.log("form successfully submited");
     }
     
     return (<>
@@ -18,21 +21,22 @@ export default function BloodO2PressureAnalysis() {
             <h2>Inital Conditions</h2>
             <label htmlFor="Pv">O2 pressure of the venous blood (mmHg)</label><br />
             <input id="Pv" type="number" defaultValue={40}></input><br />
-            <label htmlFor="Part">Initial O2 pressure of the arterial blood (mmHg)</label><br />
+            <label htmlFor="Part">Initial O2 pressure of the arterial blood (mmHg) - (cycle 0)</label><br />
             <input id="Part" type="number" defaultValue={100}></input><br />
-            <label htmlFor="Pbet">Initial O2 pressure of the blood between (mmHg)</label><br />
+            <label htmlFor="Pbet">Initial O2 pressure of the blood between (mmHg) - (cycle 0)</label><br />
             <select id="Pbet">
                 <option value="linear">linear</option>
             </select><br />
             <label htmlFor="Vr">Volume of residue (L)</label><br />
             <input id="Vr" type="number" defaultValue={1}></input><br />
-            <label htmlFor="Pr">Inital O2 pressure of residue (mmHg) - (cyle 0)</label><br />
+            <label htmlFor="Pr">Inital O2 pressure of residue (mmHg) - (cycle 0)</label><br />
             <input id="Pr" type="number" defaultValue={100}></input>
             <h2>Predefined Constants</h2>
             <p>
                 Xo2 = 19.7%, A = 8 * 10^7 mm^2, L = 1mm, v = 1.33 mm/s, <br/>
                 T = 310K, R = 62.3637 mmHg * L / (mol * K)
             </p>
+            <input type="submit" value="Submit initial conditions and predefined constants"/>
         </form>
         <button onClick={onBackToHomeClick}>Back to Home</button>
     </>);
