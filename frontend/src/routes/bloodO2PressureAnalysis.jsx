@@ -18,7 +18,12 @@ export default function BloodO2PressureAnalysis() {
             <h2>Inital Conditions</h2>
             <label htmlFor="Pv">O2 pressure of the venous blood (mmHg)</label><br />
             <input id="Pv" type="number" defaultValue={40}></input><br />
-            
+            <label htmlFor="Part">Initial O2 pressure of the arterial blood (mmHg)</label><br />
+            <input id="Part" type="number" defaultValue={100}></input><br />
+            <label htmlFor="Pbet">Initial O2 pressure of the blood between (mmHg)</label><br />
+            <select id="Pbet">
+                <option value="linear">linear</option>
+            </select><br />
             <label htmlFor="Vr">Volume of residue (L)</label><br />
             <input id="Vr" type="number" defaultValue={1}></input><br />
             <label htmlFor="Pr">Inital O2 pressure of residue (mmHg) - (cyle 0)</label><br />
