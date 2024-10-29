@@ -13,9 +13,9 @@ export default function BloodO2PressureAnalysis() {
         const Part = Number(e.target[1].value);
         const Vr = Number(e.target[2].value);
         const Pr = Number(e.target[3].value);
-        const n = Number(e.target[4].value); // precision
+        const resolution = Number(e.target[4].value); // precision
         try {
-            const res = await axios.post("/api/blood-pressure-analysis", { Pv, Part, Vr, Pr, n });
+            const res = await axios.post("/api/blood-pressure-analysis", { Pv, Part, Vr, Pr, resolution });
             console.log(res);
         } catch (err) {
             console.log(err.message);

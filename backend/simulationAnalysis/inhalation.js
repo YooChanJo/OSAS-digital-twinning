@@ -12,13 +12,14 @@ class Twin {
                 Part,
                 Vr,
                 Pr,
-                n, // # of blood segment
+                resolution, // # of blood segment
                 // initialization of cycle 0 is always linear
             }
          */
         //this.cycleNumber = 0;
         this.na = (initialConditions.Pr * initialConditions.Vr) / (predefines.R * predefines.T);
         this.Va = initialConditions.Vr;
+        this.resolution = initialConditions.resolution;
         //this.dt
         //this.t
 

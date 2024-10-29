@@ -4,7 +4,7 @@ const asyncHandler = require("express-async-handler");
 
 router.post("/", asyncHandler(async (req, res, next) => {
     console.log(req.body)
-    res.send(`It is working, ${req.body.Part}`);
+    res.json(req.body);
 }));
   
   
