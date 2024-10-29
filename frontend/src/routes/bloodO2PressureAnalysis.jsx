@@ -11,11 +11,10 @@ export default function BloodO2PressureAnalysis() {
         e.preventDefault();
         const Pv = Number(e.target[0].value);
         const Part = Number(e.target[1].value);
-        const betweenRelationship = e.target[2].value;
-        const Vr = Number(e.target[3].value);
-        const Pr = Number(e.target[4].value);
+        const Vr = Number(e.target[2].value);
+        const Pr = Number(e.target[3].value);
         try {
-            const res = await axios.post("/api/blood-pressure-analysis", { Pv, Part, betweenRelationship, Vr, Pr });
+            const res = await axios.post("/api/blood-pressure-analysis", { Pv, Part, Vr, Pr });
             console.log(res);
         } catch (err) {
             console.log(err.message);
@@ -30,10 +29,6 @@ export default function BloodO2PressureAnalysis() {
             <input id="Pv" type="number" defaultValue={40}></input><br />
             <label htmlFor="Part">Initial O2 pressure of the arterial blood (mmHg) - (cycle 0)</label><br />
             <input id="Part" type="number" defaultValue={100}></input><br />
-            <label htmlFor="between-relationship">Initial O2 pressure of the blood between (relationship) - (cycle 0)</label><br />
-            <select id="between-relationship">
-                <option value="linear">linear</option>
-            </select><br />
             <label htmlFor="Vr">Volume of residue (L)</label><br />
             <input id="Vr" type="number" defaultValue={1}></input><br />
             <label htmlFor="Pr">Inital O2 pressure of residue (mmHg) - (cycle 0)</label><br />
