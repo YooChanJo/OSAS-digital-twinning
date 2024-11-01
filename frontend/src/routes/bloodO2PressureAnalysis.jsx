@@ -31,7 +31,7 @@ export default function BloodO2PressureAnalysis() {
             <label htmlFor="Part">Initial O2 pressure of the arterial blood (mmHg) - (cycle 0)</label><br />
             <input id="Part" type="number" defaultValue={100} required></input><br />
             <label htmlFor="Vr">Volume of residue (L)</label><br />
-            <input id="Vr" type="number" defaultValue={1} required></input><br />
+            <input id="Vr" type="number" defaultValue={1.5} required></input><br />
             <label htmlFor="Pr">Inital O2 pressure of residue (mmHg) - (cycle 0)</label><br />
             <input id="Pr" type="number" defaultValue={100} required></input><br />
             <label htmlFor="resolution">Number of segments (resolution)</label><br />
