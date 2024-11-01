@@ -8,7 +8,6 @@ router.post("/", asyncHandler(async (req, res, next) => {
     const t = new Twin(req.body);
     console.log(t.predefines)
 
-
     res.json(req.body);
 }));
   
