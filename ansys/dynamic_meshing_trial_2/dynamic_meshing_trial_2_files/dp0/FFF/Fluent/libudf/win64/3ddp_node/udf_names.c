@@ -3,7 +3,7 @@
 #include "udf.h"
 #include "prop.h"
 #include "dpm.h"
-extern DEFINE_GRID_MOTION(lunge,domain,dt,time,dtime);
+extern DEFINE_GRID_MOTION(lunge, domain, dt, time, dtime);
 __declspec(dllexport) UDF_Data udf_data[] = {
 {"lunge", (void(*)())lunge, UDF_TYPE_GRID_MOTION},
 };
