@@ -2,13 +2,15 @@
 <Storage>
   <Project Version="24.2.1.0">
     <base-designpoint-name valType="String">0</base-designpoint-name>
-    <timestamp-max valType="Int64">2230</timestamp-max>
+    <timestamp-max valType="Int64">2520</timestamp-max>
     <framework-build-version valType="String">24.2.133.0</framework-build-version>
     <external-version-string valType="String">2024 R2</external-version-string>
-    <last-saved-utc valType="String">11/27/2024 06:29:54</last-saved-utc>
+    <last-saved-utc valType="String">11/29/2024 05:30:54</last-saved-utc>
     <managed-categories valType="String">[report, misc, progress]</managed-categories>
     <logHistory valType="StringArray">
       <ArrayEntry Index="0">joyoo@DESKTOP-4S49BHM:C:\Users\joyoo\AppData\Local\Temp\WorkbenchLogs\CoreEvents5668.log</ArrayEntry>
+      <ArrayEntry Index="1">joyoo@DESKTOP-4S49BHM:C:\Users\joyoo\AppData\Local\Temp\WorkbenchLogs\CoreEvents5496.log</ArrayEntry>
+      <ArrayEntry Index="2">joyoo@DESKTOP-4S49BHM:C:\Users\joyoo\AppData\Local\Temp\WorkbenchLogs\CoreEvents7976.log</ArrayEntry>
     </logHistory>
     <expression-scope-container valType="String">Parameters</expression-scope-container>
     <project-type valType="String">WB2</project-type>
@@ -41,12 +43,12 @@
 "a9c82155-e0d0-4826-b6cd-a2141151d196": "/Schematic/ComponentTemplate:CFDPostTemplate",
 "c682f9f5-f28d-47cd-9920-69dddb884ba9": "/FileContainer/FileReference:F4",
 "dd649773-5741-4f3d-b0d0-249b0a386598": "/FileTypesContainer/FileType:MeshFileType",
-"c8566963-7d76-4b38-9a86-837464e94576": "/FileContainer/FileReference:F5",
 "19f31731-3b9e-4bc4-987c-8f6197e7080c": "/FileTypesContainer/FileType:FluentMeshFileType",
-"72567229-7a0b-44b6-b5b8-b137c1399190": "/FileContainer/FileReference:F7",
-"4f4104dd-fbdd-43fe-8b2a-093d5f57a7c9": "/FileContainer/FileReference:F6",
 "f7190484-02f8-4982-b5d6-d5de253f2c95": "/FileTypesContainer/FileType:FLUENTBc",
-"f99706b4-e5dc-41e1-a90f-b2727fdfcda2": "/FileTypesContainer/FileType:FLUENTCase"
+"f99706b4-e5dc-41e1-a90f-b2727fdfcda2": "/FileTypesContainer/FileType:FLUENTCase",
+"d5b5355d-ebb0-49a6-a879-40bdd8b94e2f": "/FileTypesContainer/FileType:FLUENTUdflib",
+"a488fb6b-c50f-49f2-9d28-b0fd4f3d09bd": "/FileTypesContainer/FileType:FLUENTUdfSource",
+"c85c80b0-f838-45ab-bc96-e326b291f6d7": "/FileContainer/FileReference:F5"
 }</ReferenceList>
       </ProjectReferenceList>
       <DesignPointReferenceListCollection>
@@ -94,7 +96,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 2221, "Input": 1474, "Output": 1474}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 2511, "Input": 1474, "Output": 1474}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
       <Object Name="/FileContainer/FileReference:F1" Version="1.0">
@@ -105,7 +107,7 @@
       <Object Name="/FileContainer/FileReference:F2" Version="1.0">
         <class-type valType="String">FileReference</class-type>
         <object-name valType="String">F2</object-name>
-        <member-data valType="String">{"DisplayText": "act.dat", "FileType": $$fa2a8543-7dff-42ef-b35c-fc909ddefa18, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\act.dat", "ReferenceCount": 11}</member-data>
+        <member-data valType="String">{"DisplayText": "act.dat", "FileType": $$fa2a8543-7dff-42ef-b35c-fc909ddefa18, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\act.dat", "ReferenceCount": 18}</member-data>
       </Object>
       <Object Name="/FileContainer/FileReference:F3" Version="1.0">
         <class-type valType="String">FileReference</class-type>
@@ -120,17 +122,7 @@
       <Object Name="/FileContainer/FileReference:F5" Version="1.0">
         <class-type valType="String">FileReference</class-type>
         <object-name valType="String">F5</object-name>
-        <member-data valType="String">{"DisplayText": "FFF.msh", "FileType": $$19f31731-3b9e-4bc4-987c-8f6197e7080c, "DependentFiles": [], "ContainerAssociations": ["Mesh", "Setup"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\MECH\FFF.msh", "ReferenceCount": 2}</member-data>
-      </Object>
-      <Object Name="/FileContainer/FileReference:F6" Version="1.0">
-        <class-type valType="String">FileReference</class-type>
-        <object-name valType="String">F6</object-name>
-        <member-data valType="String">{"DisplayText": "FFF.set", "FileType": $$f7190484-02f8-4982-b5d6-d5de253f2c95, "DependentFiles": [], "ContainerAssociations": ["Setup"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF.set", "ReferenceCount": 1}</member-data>
-      </Object>
-      <Object Name="/FileContainer/FileReference:F7" Version="1.0">
-        <class-type valType="String">FileReference</class-type>
-        <object-name valType="String">F7</object-name>
-        <member-data valType="String">{"DisplayText": "FFF-Setup-Output.cas.h5", "FileType": $$f99706b4-e5dc-41e1-a90f-b2727fdfcda2, "DependentFiles": [], "ContainerAssociations": ["Setup"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF-Setup-Output.cas.h5", "ReferenceCount": 1}</member-data>
+        <member-data valType="String">{"DisplayText": "FFF.1.msh", "FileType": $$19f31731-3b9e-4bc4-987c-8f6197e7080c, "DependentFiles": [], "ContainerAssociations": ["Mesh"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\MECH\FFF.1.msh", "ReferenceCount": 1}</member-data>
       </Object>
     </Container>
     <Container Name="Messages" Version="1.0">
@@ -138,9 +130,37 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 1475, "Input": 1475, "Output": 1475}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 2497, "Input": 1475, "Output": 1475}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
+      <Object Name="/Messages/StoredMessage:Message" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Warning", "MessageCategory": "None", "Summary": r"""The following project file may not have been backed up before it was modified:
+C:\Users\joyoo\OneDrive\Desktop\OSAS-digital-twinning\ansys\dynamic_meshing_trial_2\dynamic_meshing_trial_2_files\dp0\FFF\Fluent\oscillate_y_axis.c""", "Details": None, "Association": "", "DateTimeStamp": 11/29/2024 13:45:13, "Visibility": "Warning", "MessageSourceContainer": None, "MessageSourceEntity": None, "AdditionalMessageData": None, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 1" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 1</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Error", "MessageCategory": "None", "Summary": "Model information is incompatible with incoming mesh.", "Details": """Following zones were missing in the mesh:
+piston_push_wall-contact_region_3-src
+Following new zones were found in the mesh:
+contact_region_3-src
+""", "Association": "", "DateTimeStamp": 11/29/2024 13:55:07, "Visibility": "Warning", "MessageSourceContainer": None, "MessageSourceEntity": None, "AdditionalMessageData": None, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 2" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 2</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Error", "MessageCategory": "None", "Summary": """The project has been partially saved, but some errors occured during the save.
+Failed container(s) from designpoint: Setup
+""", "Details": """   at Ansys.Core.Persistence.ProjectSaveHandler.DoProjectSave()
+   at Ansys.Core.Persistence.ProjectSaveHandler.ProjectSave()
+   at Ansys.Core.Persistence.Commands.SaveCommand.DoSave(IFullContext context, String filePath, Boolean overwrite, Boolean revertibleSave)
+   at Ansys.Core.Persistence.Commands.SaveCommand.Execute(IFullContext context)
+   at Ansys.Core.Commands.Concurrency.CommandWorkUnit.executeInContext(CommandContext subContext, IExecutionEngineCallback tracer)
+   at Ansys.Core.Commands.Concurrency.BaseWorkUnit.doExecute(IExecutionEngineCallback executionEngine, CommandContext subContext)
+   at Ansys.Core.Commands.Concurrency.BaseWorkUnit.Execute(IExecutionEngineCallback executionEngine, Boolean dontCatchExceptions)""", "Association": "", "DateTimeStamp": 11/29/2024 14:30:08, "Visibility": "Standard", "MessageSourceContainer": None, "MessageSourceEntity": None, "AdditionalMessageData": None, "DesignPoint": None}</member-data>
+      </Object>
     </Container>
     <Container Name="Parameters" Version="1.0">
       <container-type valType="String">Ansys.ParameterManager.ParameterManagerAddin:parameters</container-type>
@@ -149,7 +169,7 @@
       <maxUpdateOrder valType="Double">1</maxUpdateOrder>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 2196, "Input": 1479, "Output": 1478}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 2518, "Input": 1479, "Output": 1478}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
       <Object Name="/Parameters/DesignPoint:0" Version="1.0">
@@ -171,9 +191,9 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 2199, "Input": 2192, "Output": 1481}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 2504, "Input": 2514, "Output": 1481}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
-      <contains-significant-data valType="Boolean">false</contains-significant-data>
+      <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Schematic/System:FFF" Version="1.0">
         <class-type valType="String">System</class-type>
         <object-name valType="String">FFF</object-name>
@@ -302,7 +322,7 @@
       <Object Name="/Units/UnitSystem:UnitSys" Version="1.0">
         <class-type valType="String">UnitSystem</class-type>
         <object-name valType="String">UnitSys</object-name>
-        <member-data valType="String">{"DisplayText": "Metric (kg,m,s,°C,A,N,V)", "ChangedQuantityUnits": {"Temperature": "C", "Energy Source Coefficient": "W m^-3 C^-1", "Heat Transfer Coefficient": "W m^-2 C^-1", "InvTemp1": "C^-1", "InvTemp2": "C^-2", "InvTemp3": "C^-3", "InvTemp4": "C^-4", "Molar Entropy": "J mol^-1 C^-1", "Normalized Value": "m m^-1", "Seebeck Coefficient": "V C^-1", "Specific Entropy": "J kg^-1 C^-1", "Specific Heat Capacity": "J kg^-1 C^-1", "Temperature Gradient": "C m^-1", "Thermal Conductivity": "W m^-1 C^-1", "Thermal Expansivity": "C^-1", "Stress Per Temperature": "Pa C^-1", "Temperature Difference": "C", "Density Derivative wrt Temperature": "kg m^-3 C^-1", "Pressure Derivative wrt Temperature": "Pa C^-1", "Thermal Capacitance": "J C^-1", "Thermal Conductance": "W C^-1", "Thermal Contact Resistance": "W^-1 m^2 C", "Piezoelectric Strain Coefficient": "A s N^-1", "Piezoelectric Stress Coefficient": "A s m^-2", "Thermal Compliance": "W C"}, "UnitSystemName": "MKS_STANDARD", "BaseUnitSystemName": "SI", "IsProjectUnitSystem": True, "IsDefault": False}</member-data>
+        <member-data valType="String">{"DisplayText": "Metric (kg,m,s,°C,A,N,V)", "ChangedQuantityUnits": {}, "UnitSystemName": "MKS_STANDARD", "BaseUnitSystemName": "SI", "IsProjectUnitSystem": True, "IsDefault": False}</member-data>
       </Object>
     </Container>
     <Container Name="RepContainer" Version="1.0">

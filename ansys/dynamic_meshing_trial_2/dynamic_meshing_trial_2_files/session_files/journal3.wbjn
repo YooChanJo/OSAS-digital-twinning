@@ -1,0 +1,10 @@
+# encoding: utf-8
+# 2024 R2
+SetScriptVersion(Version="24.2.133")
+system1 = GetSystem(Name="FFF")
+mesh1 = system1.GetContainer(ComponentName="Mesh")
+mesh1.Edit()
+Save(Overwrite=True)
+Save(Overwrite=True)
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+Open(FilePath="C:/Users/joyoo/OneDrive/Desktop/OSAS-digital-twinning/ansys/dynamic_meshing_trial_2/dynamic_meshing_trial_2.wbpj")

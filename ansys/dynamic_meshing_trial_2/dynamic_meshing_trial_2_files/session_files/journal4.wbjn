@@ -1,0 +1,8 @@
+# encoding: utf-8
+# 2024 R2
+SetScriptVersion(Version="24.2.133")
+Save(Overwrite=True)
+system1 = GetSystem(Name="FFF")
+meshComponent1 = system1.GetComponent(Name="Mesh")
+meshComponent1.Update(AllDependencies=True)
+Save(Overwrite=True)
