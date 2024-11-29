@@ -1,9 +1,4 @@
-ChatGPT 4o mini
 
-로그인
-
-회원 가입
-나의 말:
 I want to use dynamic meshing to oscillate a piston and the udf is this: #include "udf.h"
 #include "dynamesh_tools.h"
 #include "unsteady.h"
