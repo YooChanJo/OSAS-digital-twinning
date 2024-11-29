@@ -16,8 +16,7 @@ DEFINE_GRID_MOTION(lunge,domain,dt,time,dtime){
     real velocity;
     int n;
 
-    real velocity;
-    int n;
+   
     
 
     SET_DEFORMING_THREAD_FLAG(THREAD_T0(tf));
