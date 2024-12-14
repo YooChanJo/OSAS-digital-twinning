@@ -58,8 +58,11 @@ session_files/journal4.wbjn
 session_files/journal5.wbjn
 session_files/journal6.wbjn
 dp0/
+<<<<<<< HEAD
 dpall/
 progress_files/
+=======
+>>>>>>> c1c3613e3dc7332a019683fd782a89d0a3e0d5f6
 session_files/
 dp0/FFF/
 dp0/global/
@@ -72,6 +75,7 @@ dp0/FFF/Fluent/libudf/win64/
 dp0/FFF/Fluent/libudf/win64/3ddp_host/
 dp0/FFF/Fluent/libudf/win64/3ddp_node/
 dp0/global/MECH/
+<<<<<<< HEAD
 dp0/global/MECH/FFF/
 dpall/global/
 dpall/global/ACT/
@@ -79,3 +83,5 @@ dpall/global/ACT/extensions/
 progress_files/dp0/
 progress_files/dp0/FFF/
 progress_files/dp0/FFF/Fluent/
+=======
+>>>>>>> c1c3613e3dc7332a019683fd782a89d0a3e0d5f6
