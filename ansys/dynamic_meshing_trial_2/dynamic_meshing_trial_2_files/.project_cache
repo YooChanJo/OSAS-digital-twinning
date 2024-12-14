@@ -11,7 +11,6 @@ session_files/journal2_crashed.wbjn
 session_files/journal3.wbjn
 session_files/journal4.wbjn
 dp0/
-dpall/
 session_files/
 dp0/FFF/
 dp0/global/
@@ -19,7 +18,3 @@ dp0/FFF/DM/
 dp0/FFF/Fluent/
 dp0/FFF/MECH/
 dp0/global/MECH/
-dp0/global/MECH/FFF/
-dpall/global/
-dpall/global/ACT/
-dpall/global/ACT/extensions/
