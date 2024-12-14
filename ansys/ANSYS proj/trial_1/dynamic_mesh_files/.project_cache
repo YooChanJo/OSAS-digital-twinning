@@ -1,5 +1,6 @@
 ﻿dp0/FFF/DM/FFF.agdb
 dp0/FFF/DM/FFF.scdoc
+dp0/FFF/Fluent/.flwb_report_files/report.xml
 dp0/FFF/Fluent/libudf/src/push_wall_movement.c
 dp0/FFF/Fluent/libudf/win64/3ddp_host/.sconsign.dblite
 dp0/FFF/Fluent/libudf/win64/3ddp_host/libudf.dll
@@ -56,6 +57,8 @@ session_files/journal16.wbjn
 session_files/journal16_crashed.wbjn
 session_files/journal17.wbjn
 session_files/journal18.wbjn
+session_files/journal18_crashed.wbjn
+session_files/journal19.wbjn
 session_files/journal2.wbjn
 session_files/journal2_crashed.wbjn
 session_files/journal3.wbjn
@@ -79,6 +82,7 @@ dp0/global/
 dp0/FFF/DM/
 dp0/FFF/Fluent/
 dp0/FFF/MECH/
+dp0/FFF/Fluent/.flwb_report_files/
 dp0/FFF/Fluent/libudf/
 dp0/FFF/Fluent/libudf/src/
 dp0/FFF/Fluent/libudf/win64/
