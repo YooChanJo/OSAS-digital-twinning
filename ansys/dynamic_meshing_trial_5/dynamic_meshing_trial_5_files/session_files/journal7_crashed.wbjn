@@ -1,0 +1,18 @@
+# encoding: utf-8
+# 2024 R2
+SetScriptVersion(Version="24.2.133")
+system1 = GetSystem(Name="FFF")
+setupComponent1 = system1.GetComponent(Name="Setup")
+setupComponent1.Reset()
+setupComponent1.Refresh()
+setup1 = system1.GetContainer(ComponentName="Setup")
+fluentLauncherSettings1 = setup1.GetFluentLauncherSettings()
+fluentLauncherSettings1.SetEntityProperties(Properties=Set(DisplayText="Fluent Launcher Settings", Precision="Double", EnvPath={}, RunParallel=True, NumberOfProcessorsMeshing=4, NumberOfProcessors=4))
+setup1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 1)')
+Save(Overwrite=True)
+Save(Overwrite=True)
+Save(Overwrite=True)
+setup1.SendCommand(Command='/file/set-tui-version "24.2"(cx-gui-do cx-set-toggle-button2 "General*Table1*Table2(Solver)*ToggleBox5(Time)*Transient" #t)(cx-gui-do cx-activate-item "General*Table1*Table2(Solver)*ToggleBox5(Time)*Transient")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame4(User-Defined)*Table1*Table3(User Defined)*PushButton1(Functions)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuFunctions*Compiled...")')
