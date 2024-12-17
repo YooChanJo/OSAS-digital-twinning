@@ -1,7 +1,0 @@
-# encoding: utf-8
-# 2024 R2
-SetScriptVersion(Version="24.2.133")
-system1 = GetSystem(Name="FFF")
-results1 = system1.GetContainer(ComponentName="Results")
-results1.Edit()
-results1.Edit()
