@@ -2,10 +2,10 @@
 <Storage>
   <Project Version="24.2.1.0">
     <base-designpoint-name valType="String">0</base-designpoint-name>
-    <timestamp-max valType="Int64">3727</timestamp-max>
+    <timestamp-max valType="Int64">3750</timestamp-max>
     <framework-build-version valType="String">24.2.133.0</framework-build-version>
     <external-version-string valType="String">2024 R2</external-version-string>
-    <last-saved-utc valType="String">12/14/2024 08:02:55</last-saved-utc>
+    <last-saved-utc valType="String">12/16/2024 02:28:20</last-saved-utc>
     <managed-categories valType="String">[report, misc, progress]</managed-categories>
     <logHistory valType="StringArray">
       <ArrayEntry Index="0">Owner@WOOKJO-P03:C:\Users\Owner\AppData\Local\Temp\WorkbenchLogs\CoreEvents23080.log</ArrayEntry>
@@ -23,6 +23,7 @@
       <ArrayEntry Index="12">Owner@WOOKJO-P03:C:\Users\Owner\AppData\Local\Temp\WorkbenchLogs\CoreEvents7288.log</ArrayEntry>
       <ArrayEntry Index="13">joyoo@DESKTOP-4S49BHM:C:\Users\joyoo\AppData\Local\Temp\WorkbenchLogs\CoreEvents10744.log</ArrayEntry>
       <ArrayEntry Index="14">joyoo@DESKTOP-4S49BHM:C:\Users\joyoo\AppData\Local\Temp\WorkbenchLogs\CoreEvents6612.log</ArrayEntry>
+      <ArrayEntry Index="15">joyoo@DESKTOP-4S49BHM:C:\Users\joyoo\AppData\Local\Temp\WorkbenchLogs\CoreEvents9936.log</ArrayEntry>
     </logHistory>
     <expression-scope-container valType="String">Parameters</expression-scope-container>
     <project-type valType="String">WB2</project-type>
@@ -68,14 +69,16 @@
 "221be2a4-b3fd-457f-be32-229519afe431": "/FileContainer/FileReference:F28",
 "edbb5518-4f4a-4749-a43e-5ca7217c6843": "/FileContainer/FileReference:F27",
 "163f71ec-ec07-4ac4-8a76-2b71de7e9abc": "/FileTypesContainer/FileType:InterpolateDataFile",
-"5bea8927-f806-413a-b43f-7e49c3bfabd4": "/FileContainer/FileReference:F44",
 "61df89b4-3df0-4f42-ae11-0b0f537543bf": "/FileContainer/FileReference:F46",
-"e7b23e71-16e1-40ff-ad8f-b9b3effb2c69": "/FileContainer/FileReference:F45",
 "baae315f-39b3-4087-9479-e8f4631b059e": "/FileContainer/FileReference:F43",
 "52f44930-1139-4ace-811f-fcccaa4b8a3a": "/FileContainer/FileReference:F38",
-"8ef4a276-6fd8-4ce4-9b3e-1aec8f68945a": "/FileContainer/FileReference:F40",
 "fb737f41-8bc6-4381-ab78-bd93e0c0ad9a": "/FileContainer/FileReference:F41",
-"99feabdb-8c16-4ba9-810a-12aa936c70af": "/FileContainer/FileReference:F42"
+"99feabdb-8c16-4ba9-810a-12aa936c70af": "/FileContainer/FileReference:F42",
+"df52a0e1-e5ed-4185-a53b-9b39261ab68e": "/FileContainer/FileReference:F49",
+"f7224ba1-7eb2-4432-9037-34eadce88d8a": "/FileContainer/FileReference:F47",
+"91431fbf-d9a8-4d20-8e2e-5d9173ff11ab": "/FileContainer/FileReference:F48",
+"9c3bfd76-d8b4-4a08-afa3-df2f58edc281": "/FileContainer/FileReference:F50",
+"d6faafb8-81bc-4623-bf3a-b844b63d4b38": "/FileContainer/FileReference:F51"
 }</ReferenceList>
       </ProjectReferenceList>
       <DesignPointReferenceListCollection>
@@ -123,7 +126,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 3719, "Input": 1836, "Output": 1836}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 3745, "Input": 1836, "Output": 1836}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
       <Object Name="/FileContainer/FileReference:F1" Version="1.0">
@@ -134,7 +137,7 @@
       <Object Name="/FileContainer/FileReference:F2" Version="1.0">
         <class-type valType="String">FileReference</class-type>
         <object-name valType="String">F2</object-name>
-        <member-data valType="String">{"DisplayText": "act.dat", "FileType": $$17850213-2c62-4470-8bc7-63dfea9d7b68, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\act.dat", "ReferenceCount": 44}</member-data>
+        <member-data valType="String">{"DisplayText": "act.dat", "FileType": $$17850213-2c62-4470-8bc7-63dfea9d7b68, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\act.dat", "ReferenceCount": 45}</member-data>
       </Object>
       <Object Name="/FileContainer/FileReference:F3" Version="1.0">
         <class-type valType="String">FileReference</class-type>
@@ -169,17 +172,17 @@
       <Object Name="/FileContainer/FileReference:F28" Version="1.0">
         <class-type valType="String">FileReference</class-type>
         <object-name valType="String">F28</object-name>
-        <member-data valType="String">{"DisplayText": "SolutionMonitor.gz", "FileType": $$822a111f-8415-4e06-8180-89d69437b5c6, "DependentFiles": [], "ContainerAssociations": ["Solution"], "SkipForDesignPointDuplication": False, "IsDeletable": False, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\SolutionMonitor.gz", "ReferenceCount": 3}</member-data>
+        <member-data valType="String">{"DisplayText": "SolutionMonitor.gz", "FileType": $$822a111f-8415-4e06-8180-89d69437b5c6, "DependentFiles": [], "ContainerAssociations": ["Solution"], "SkipForDesignPointDuplication": False, "IsDeletable": False, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\SolutionMonitor.gz", "ReferenceCount": 4}</member-data>
       </Object>
-      <Object Name="/FileContainer/FileReference:F44" Version="1.0">
+      <Object Name="/FileContainer/FileReference:F47" Version="1.0">
         <class-type valType="String">FileReference</class-type>
-        <object-name valType="String">F44</object-name>
-        <member-data valType="String">{"DisplayText": "FFF.1-2-00000.cas.h5", "FileType": $$e7e09dbf-0dc4-45d4-97f1-b80fc0be8b0d, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF.1-2-00000.cas.h5", "ReferenceCount": 1}</member-data>
+        <object-name valType="String">F47</object-name>
+        <member-data valType="String">{"DisplayText": "FFF.1-3-00000.cas.h5", "FileType": $$e7e09dbf-0dc4-45d4-97f1-b80fc0be8b0d, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF.1-3-00000.cas.h5", "ReferenceCount": 1}</member-data>
       </Object>
-      <Object Name="/FileContainer/FileReference:F45" Version="1.0">
+      <Object Name="/FileContainer/FileReference:F48" Version="1.0">
         <class-type valType="String">FileReference</class-type>
-        <object-name valType="String">F45</object-name>
-        <member-data valType="String">{"DisplayText": "FFF.1-2-00000.dat.h5", "FileType": $$34297f55-4162-4ef7-afa7-9af7c0c9c0bd, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF.1-2-00000.dat.h5", "ReferenceCount": 1}</member-data>
+        <object-name valType="String">F48</object-name>
+        <member-data valType="String">{"DisplayText": "FFF.1-3-00000.dat.h5", "FileType": $$34297f55-4162-4ef7-afa7-9af7c0c9c0bd, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF.1-3-00000.dat.h5", "ReferenceCount": 1}</member-data>
       </Object>
       <Object Name="/FileContainer/FileReference:F42" Version="1.0">
         <class-type valType="String">FileReference</class-type>
@@ -191,10 +194,10 @@
         <object-name valType="String">F41</object-name>
         <member-data valType="String">{"DisplayText": "libudf.dll", "FileType": $$c330b05d-f034-445c-bfa1-dc8d71fefb26, "DependentFiles": [], "ContainerAssociations": ["Setup"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\libudf\win64\3ddp_host\libudf.dll", "ReferenceCount": 1}</member-data>
       </Object>
-      <Object Name="/FileContainer/FileReference:F40" Version="1.0">
+      <Object Name="/FileContainer/FileReference:F50" Version="1.0">
         <class-type valType="String">FileReference</class-type>
-        <object-name valType="String">F40</object-name>
-        <member-data valType="String">{"DisplayText": "push_wall_movement.c", "FileType": $$eb59af24-e76e-439e-895d-19fc6e4f3712, "DependentFiles": [], "ContainerAssociations": ["Setup"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\push_wall_movement.c", "ReferenceCount": 1}</member-data>
+        <object-name valType="String">F50</object-name>
+        <member-data valType="String">{"DisplayText": "FFF.1-3-00001.cas.h5", "FileType": $$e7e09dbf-0dc4-45d4-97f1-b80fc0be8b0d, "DependentFiles": [$$d6faafb8-81bc-4623-bf3a-b844b63d4b38], "ContainerAssociations": ["Solution"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF.1-3-00001.cas.h5", "ReferenceCount": 1}</member-data>
       </Object>
       <Object Name="/FileContainer/FileReference:F43" Version="1.0">
         <class-type valType="String">FileReference</class-type>
@@ -211,13 +214,23 @@
         <object-name valType="String">F46</object-name>
         <member-data valType="String">{"DisplayText": "FFF.1-3-00041.cas.h5", "FileType": $$e7e09dbf-0dc4-45d4-97f1-b80fc0be8b0d, "DependentFiles": [], "ContainerAssociations": ["Solution"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF.1-3-00041.cas.h5", "ReferenceCount": 1}</member-data>
       </Object>
+      <Object Name="/FileContainer/FileReference:F49" Version="1.0">
+        <class-type valType="String">FileReference</class-type>
+        <object-name valType="String">F49</object-name>
+        <member-data valType="String">{"DisplayText": "push_wall_movement.c", "FileType": $$eb59af24-e76e-439e-895d-19fc6e4f3712, "DependentFiles": [], "ContainerAssociations": ["Setup"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"C:\Users\joyoo\OneDrive\Desktop\OSAS-digital-twinning\ansys\ANSYS proj\trial_1\dynamic_mesh_files\dp0\FFF\Fluent\push_wall_movement.c", "ReferenceCount": 1}</member-data>
+      </Object>
+      <Object Name="/FileContainer/FileReference:F51" Version="1.0">
+        <class-type valType="String">FileReference</class-type>
+        <object-name valType="String">F51</object-name>
+        <member-data valType="String">{"DisplayText": "FFF.1-3-00001.dat.h5", "FileType": $$34297f55-4162-4ef7-afa7-9af7c0c9c0bd, "DependentFiles": [], "ContainerAssociations": ["Solution"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF.1-3-00001.dat.h5", "ReferenceCount": 1}</member-data>
+      </Object>
     </Container>
     <Container Name="Messages" Version="1.0">
       <container-type valType="String">Project:Messages</container-type>
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 3725, "Input": 1837, "Output": 1837}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 3748, "Input": 1837, "Output": 1837}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
       <Object Name="/Messages/StoredMessage:Message" Version="1.0">
@@ -328,6 +341,47 @@ An error occurred in FLUENT during execution of an internal command""", "Associa
         <member-data valType="String">{"DisplayText": "Message", "MessageType": "Error", "MessageCategory": "None", "Summary": """Failed in handling Cortex/Fluent command messageWorkBench Error: Could not register file; Name :FFF.1-3-00041.cas.h5; Type :caseError Occured during handling message in WorkBench: An error occurred in FLUENT when updating the solution history
 An error occurred in FLUENT when updating the solution history""", "Details": """Error in registering file: Error Occured during handling message in WorkBench: An error occurred in FLUENT when updating the solution history
 An error occurred in FLUENT when updating the solution history""", "Association": "", "DateTimeStamp": 12/14/2024 17:01:20, "Visibility": "Warning", "MessageSourceContainer": None, "MessageSourceEntity": None, "AdditionalMessageData": None, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 11" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 11</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Error", "MessageCategory": "None", "Summary": r"""Failed in handling Fluent message.WorkBench Error: Could not handle event: CALCULATION-INTERRUPTEDSystem.IO.IOException: Access to the path 'C:\Users\joyoo\OneDrive\Desktop\OSAS-digital-twinning\ansys\dynamic_meshing_trial_4_recent - Copy_do_not_touch\dynamic_mesh_files\dp0\FFF\Fluent\.flwb_report_files' is denied.
+   at System.IO.Directory.DeleteHelper(String fullPath, String userPath, Boolean recursive, Boolean throwOnTopLevelDirectoryNotFound, WIN32_FIND_DATA&amp; data)
+   at System.IO.Directory.Delete(String fullPath, String userPath, Boolean recursive, Boolean checkHost)
+   at Ansys.Fluent.Data.SolutionData.HandleProgressFiles(IFullContext context, Boolean moveToProgress, Boolean onlyReportFiles)
+   at Ansys.Fluent.Data.SolutionData.HandleEvent(IFullContext context, Dictionary`2 eventInfo)
+   at Ansys.Fluent.Data.SetupData.HandleEvent(Dictionary`2 eventInfo, IFullContext context)
+   at Ansys.Fluent.Cortex.CortexCommunicator._handleAppMessage(Object obj)""", "Details": r"""Error in handling event:System.IO.IOException: Access to the path 'C:\Users\joyoo\OneDrive\Desktop\OSAS-digital-twinning\ansys\dynamic_meshing_trial_4_recent - Copy_do_not_touch\dynamic_mesh_files\dp0\FFF\Fluent\.flwb_report_files' is denied.
+   at System.IO.Directory.DeleteHelper(String fullPath, String userPath, Boolean recursive, Boolean throwOnTopLevelDirectoryNotFound, WIN32_FIND_DATA&amp; data)
+   at System.IO.Directory.Delete(String fullPath, String userPath, Boolean recursive, Boolean checkHost)
+   at Ansys.Fluent.Data.SolutionData.HandleProgressFiles(IFullContext context, Boolean moveToProgress, Boolean onlyReportFiles)
+   at Ansys.Fluent.Data.SolutionData.HandleEvent(IFullContext context, Dictionary`2 eventInfo)
+   at Ansys.Fluent.Data.SetupData.HandleEvent(Dictionary`2 eventInfo, IFullContext context)
+   at Ansys.Fluent.Cortex.CortexCommunicator._handleAppMessage(Object obj)""", "Association": "", "DateTimeStamp": 12/16/2024 11:25:36, "Visibility": "Warning", "MessageSourceContainer": None, "MessageSourceEntity": None, "AdditionalMessageData": None, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 12" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 12</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Warning", "MessageCategory": "None", "Summary": "An attempt to restore the project to its original state has failed because some files and/or directories may be in use by other program, or disk is full or the files are read-only. You must make sure these files are not currently in use, disk is not full, and project directory has write permission.", "Details": """Ansys.Core.FileManagement.ProjectFilesRestoreException: An attempt to restore the project to its original state has failed because some files and/or directories may be in use by other program, or disk is full or the files are read-only. You must make sure these files are not currently in use, disk is not full, and project directory has write permission.
+   at Ansys.Core.FileManagement.ProjectFilesBackupEngine.RestoreProjectFiles(String projectFilePath, List`1 filesToDelete, List`1 directoriesToDelete)
+   at Ansys.Core.FileManagement.ProjectFilesBackupEngine.RevertProjectFiles(IQueryContext context)
+   at Ansys.Core.FileManagement.Commands.RevertFilesCommand.RevertProjectFiles(IFullContext context)
+   at Ansys.Core.Commands.Concurrency.CommandWorkUnit.executeInContext(CommandContext subContext, IExecutionEngineCallback tracer)
+   at Ansys.Core.Commands.Concurrency.BaseWorkUnit.doExecute(IExecutionEngineCallback executionEngine, CommandContext subContext)
+   at Ansys.Core.Commands.Concurrency.BaseWorkUnit.Execute(IExecutionEngineCallback executionEngine, Boolean dontCatchExceptions)
+""", "Association": "", "DateTimeStamp": 12/16/2024 11:27:56, "Visibility": "Warning", "MessageSourceContainer": None, "MessageSourceEntity": None, "AdditionalMessageData": None, "DesignPoint": None}</member-data>
+      </Object>
+      <Object Name="/Messages/StoredMessage:Message 13" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 13</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Warning", "MessageCategory": "None", "Summary": "An attempt to restore the project to its original state has failed because some files and/or directories may be in use by other program, or disk is full or the files are read-only. You must make sure these files are not currently in use, disk is not full, and project directory has write permission.", "Details": """Ansys.Core.FileManagement.ProjectFilesRestoreException: An attempt to restore the project to its original state has failed because some files and/or directories may be in use by other program, or disk is full or the files are read-only. You must make sure these files are not currently in use, disk is not full, and project directory has write permission.
+   at Ansys.Core.FileManagement.ProjectFilesBackupEngine.RestoreProjectFiles(String projectFilePath, List`1 filesToDelete, List`1 directoriesToDelete)
+   at Ansys.Core.FileManagement.ProjectFilesBackupEngine.RevertProjectFiles(IQueryContext context)
+   at Ansys.Core.FileManagement.Commands.RevertFilesCommand.RevertProjectFiles(IFullContext context)
+   at Ansys.Core.Commands.Concurrency.CommandWorkUnit.executeInContext(CommandContext subContext, IExecutionEngineCallback tracer)
+   at Ansys.Core.Commands.Concurrency.BaseWorkUnit.doExecute(IExecutionEngineCallback executionEngine, CommandContext subContext)
+   at Ansys.Core.Commands.Concurrency.BaseWorkUnit.Execute(IExecutionEngineCallback executionEngine, Boolean dontCatchExceptions)
+""", "Association": "", "DateTimeStamp": 12/16/2024 11:28:06, "Visibility": "Warning", "MessageSourceContainer": None, "MessageSourceEntity": None, "AdditionalMessageData": None, "DesignPoint": None}</member-data>
       </Object>
     </Container>
     <Container Name="Parameters" Version="1.0">
