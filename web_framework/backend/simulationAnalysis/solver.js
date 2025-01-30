@@ -1,7 +1,7 @@
 const defaultPredefines = require("./defaultPredefines");
 const sampleGenerator = require("./sampleGenerator");
 
-class Twin { // has no idea of cycles
+class Solver { // has no idea of cycles
     /* 
         t
         predefines { Xo2, A, L, v, T, R, SaO2, CoO2 }
@@ -33,7 +33,7 @@ class Twin { // has no idea of cycles
         this.Va = initialConditions.Vr;
         this.Pa = initialConditions.Pr;
         this.Pb = new Array(initialConditions.resolution + 1);
-        for(let i=0; i<initialConditions.resolution + 1; i++) {
+        for(let i=0; i<initialConditions.resolution + 1; i++) { // linear initialization
             this.Pb[i] = initialConditions.Pv + ( i / initialConditions.resolution ) * ( initialConditions.Part - initialConditions.Pv );
         }
 
@@ -76,4 +76,4 @@ class Twin { // has no idea of cycles
 
 }
 
-module.exports = { Twin }
+mo
