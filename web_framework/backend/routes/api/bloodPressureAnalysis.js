@@ -11,5 +11,4 @@ router.post("/", asyncHandler(async (req, res, next) => {
     res.json(req.body);
 }));
   
-  
 module.exports = router;

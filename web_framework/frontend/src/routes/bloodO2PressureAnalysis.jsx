@@ -1,25 +1,25 @@
 //import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { useState } from "react";
 
 export default function BloodO2PressureAnalysis() {
     const navigate = useNavigate();
+    const [Pv, setPv] = useState();
+    const [Part, setPart] = useState();
+    const [Vr, setVr] = useState();
+    const [Pr, setPr] = useState();
+    const [resolution, setresolution] = useState();
     const onBackToHomeClick = () => {
         navigate("/");
     }
     const onFormSubmit = async (e) => {
         e.preventDefault();
-        const Pv = Number(e.target[0].value);
-        const Part = Number(e.target[1].value);
-        const Vr = Number(e.target[2].value);
-        const Pr = Number(e.target[3].value);
-        const resolution = Number(e.target[4].value); // precision
-        try {
-            const res = await axios.post("/api/blood-pressure-analysis", { Pv, Part, Vr, Pr, resolution });
-            console.log(res);
-        } catch (err) {
-            console.log(err.message);
-        }
+        setPv(Number(e.target[0].value));
+        setPart(Number(e.target[1].value));
+        setVr(Number(e.target[2].value));
+        setPr(Number(e.target[3].value));
+        setResolution(Number(e.target[4].value)); // precision
     }
     
     return (<>
