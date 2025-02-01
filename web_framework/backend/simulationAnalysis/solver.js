@@ -11,25 +11,24 @@ class History {
 }
 
 class Solver {
-    #t;#Va;#Pa;#na;#Pb;#resolution;#dt;#predefines;#history;
     constructor(initialConditions, predefines) {
         // predefined constants and functions
-        if(!predefines) this.#predefines = defaultPredefines; // predefines 정의 안됨
-        else this.#predefines = predefines;
+        if(!predefines) this.predefines = defaultPredefines; // predefines 정의 안됨
+        else this.predefines = predefines;
         // properties
-        this.#t = 0;
-        this.#Va = initialConditions.Vr;
-        this.#Pa = initialConditions.Pr;
-        this.#na = (initialConditions.Pr * initialConditions.Vr) / (this.#predefines.R * this.#predefines.T);
-        this.#Pb = new Array(initialConditions.resolution + 1);
+        this.t = 0;
+        this.Va = initialConditions.Vr;
+        this.Pa = initialConditions.Pr;
+        this.na = (initialConditions.Pr * initialConditions.Vr) / (this.predefines.R * this.predefines.T);
+        this.Pb = new Array(initialConditions.resolution + 1);
         for(let i=0; i<initialConditions.resolution + 1; i++) { // linear initialization
-            this.#Pb[i] = 
+            this.Pb[i] = 
                 initialConditions.Pv + 
                 ( i / initialConditions.resolution ) * 
                 ( initialConditions.Part - initialConditions.Pv );
         }
-        this.#resolution = initialConditions.resolution;
-        this.#dt = (this.#predefines.L) / (this.#resolution * this.#predefines.v);
+        this.resolution = initialConditions.resolution;
+        this.dt = (this.predefines.L) / (this.resolution * this.predefines.v);
     }    
     evolve() {
 
@@ -57,7 +56,7 @@ module.exports = { Solver };
     }
     initialConditions {
         Pv, Part, Vr, Pr,
-        resolution, // # of blood segment --> values assign to 1 ~ resolution
+        resolution, //  of blood segment --> values assign to 1 ~ resolution
         // 
     }
 */
