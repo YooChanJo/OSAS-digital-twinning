@@ -1,34 +1,35 @@
 const PI = 3.141592656358979;
+const R = 62.3637;
+const T = 310;
 
-const period = 5;
-const inhalation = 2;
-const exhalation = period - inhalation;
+const PERIOD = 5;
+const INHALATION = 2;
+const EXHALATION = PERIOD - INHALATION;
 
 const VinSampleFunction = (t) => {
-    t -= Math.floor(t / period) * period
-    t *= PI / ( 2 * period );
+    t -= Math.floor(t / PERIOD) * PERIOD
+    t *= PI / ( 2 * PERIOD );
     return Math.sqrt(3) * 3 / 4  * Math.sin(t) * Math.cos(t) * Math.cos(t);
 }
-const PinSampleFunction = (t) => {
-    t -= Math.floor(t / period) * period
-    t *= PI / (2 * period);
-    if( t <= inhalation ) return -Math.sin(PI * t / inhalation);
-    else return Math.sin(PI * (t-inhalation) / exhalation); // Is not going to be needed
+const NinSampleFunction = (t) => {
+    t -= Math.floor(t / PERIOD) * PERIOD
+    if( t <= INHALATION ) return (760 - Math.sin(PI * t / INHALATION)) * VinSampleFunction(t) / R / T;
+    else return (760 + Math.sin(PI * (t-INHALATION) / EXHALATION)) * VinSampleFunction(t) / R / T;
 }
 
 const VinSampleGenerator = (cycles, dt) => {
     const result = [];
-    for(let t = 0; t <= period * cycles; t += dt) {
+    for(let t = 0; t <= PERIOD * cycles; t += dt) {
         result.push(VinSampleFunction(t));
     }
     return result;
 }
-const PinSampleGenerator = (cycles, dt) => {
+const NinSampleGenerator = (cycles, dt) => {
     const result = [];
-    for(let t = 0; t <= period * cycles; t += dt) {
-        result.push(PinSampleFunction(t));
+    for(let t = 0; t <= PERIOD * cycles; t += dt) {
+        result.push(NinSampleFunction(t));
     }
     return result;
 }
 
-module.exports = { VinSampleGenerator, PinSampleGenerator };
+module.exports = { VinSampleGenerator, NinSampleGenerator };
