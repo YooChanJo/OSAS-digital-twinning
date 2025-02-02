@@ -1,7 +1,8 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import BloodO2PressureAnalysis from './routes/bloodO2PressureAnalysis';
 import Home from './routes/home';
+import AnalysisInitForm from './routes/analysisInitForm';
+import AnalysisResults from './routes/analysisResults';
 
 const router = createBrowserRouter([
   {
@@ -9,8 +10,12 @@ const router = createBrowserRouter([
     element: <Home />
   },
   {
-    path: "/analysis/blood-o2-pressure-analysis", // need to change path name to a more better one
-    element: <BloodO2PressureAnalysis />
+    path: "/analysis/init-form", // need to change path name to a more better one
+    element: <AnalysisInitForm />
+  },
+  {
+    path: "/analysis/results/:query", // need to change path name to a more better one
+    element: <AnalysisResults />
   },
 ]);
 

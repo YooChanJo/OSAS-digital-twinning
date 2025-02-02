@@ -3,23 +3,20 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { useState } from "react";
 
-export default function BloodO2PressureAnalysis() {
+export default function AnalysisInitForm() {
     const navigate = useNavigate();
-    const [Pv, setPv] = useState();
-    const [Part, setPart] = useState();
-    const [Vr, setVr] = useState();
-    const [Pr, setPr] = useState();
-    const [resolution, setresolution] = useState();
     const onBackToHomeClick = () => {
         navigate("/");
     }
     const onFormSubmit = async (e) => {
         e.preventDefault();
-        setPv(Number(e.target[0].value));
-        setPart(Number(e.target[1].value));
-        setVr(Number(e.target[2].value));
-        setPr(Number(e.target[3].value));
-        setResolution(Number(e.target[4].value)); // precision
+        const query = 
+            String(e.target[0].value) + "%" // Pv
+            + String(e.target[1].value) + "%" // Part
+            + String(e.target[2].value) + "%" // Vr
+            + String(e.target[3].value) + "%" // Pr
+            + String(e.target[4].value); // resolution
+        navigate(`/analysis/results/${query}`);
     }
     
     return (<>
@@ -28,11 +25,11 @@ export default function BloodO2PressureAnalysis() {
             <h2>Inital Conditions</h2>
             <label htmlFor="Pv">O2 pressure of the venous blood (mmHg)</label><br />
             <input id="Pv" type="number" defaultValue={40} required></input><br />
-            <label htmlFor="Part">Initial O2 pressure of the arterial blood (mmHg) - (cycle 0)</label><br />
+            <label htmlFor="Part">Initial O2 pressure of the arterial blood (mmHg)</label><br />
             <input id="Part" type="number" defaultValue={100} required></input><br />
-            <label htmlFor="Vr">Volume of remaining air (L) (2~3) - (cycle 0)</label><br />
+            <label htmlFor="Vr">Initial volume of remaining air (L) (2~3)</label><br />
             <input id="Vr" type="number" defaultValue={2} required></input><br />
-            <label htmlFor="Pr">Inital O2 pressure of remaining air (mmHg) - (cycle 0)</label><br />
+            <label htmlFor="Pr">Inital O2 pressure of remaining air (mmHg)</label><br />
             <input id="Pr" type="number" defaultValue={100} required></input><br />
             <label htmlFor="resolution">Number of segments (resolution)</label><br />
             <input id="resolution" type="number" defaultValue={10000} required></input>
