@@ -11,10 +11,10 @@ export default function AnalysisInitForm() {
     const onFormSubmit = async (e) => {
         e.preventDefault();
         const query = 
-            String(e.target[0].value) + "%" // Pv
-            + String(e.target[1].value) + "%" // Part
-            + String(e.target[2].value) + "%" // Vr
-            + String(e.target[3].value) + "%" // Pr
+            String(e.target[0].value) + "_" // Pv
+            + String(e.target[1].value) + "_" // Part
+            + String(e.target[2].value) + "_" // Vr
+            + String(e.target[3].value) + "_" // Pr
             + String(e.target[4].value); // resolution
         navigate(`/analysis/results/${query}`);
     }
@@ -35,7 +35,7 @@ export default function AnalysisInitForm() {
             <input id="resolution" type="number" defaultValue={10000} required></input>
             <h2>Predefined Constants</h2>
             <p>
-                Xo2 = 19.7%, A = 8 * 10^7 mm^2, L = 1mm, v = 1.33 mm/s, <br/>
+                Xo2 = 19.7_, A = 8 * 10^7 mm^2, L = 1mm, v = 1.33 mm/s, <br/>
                 T = 310K, R = 62.3637 mmHg * L / (mol * K)
             </p>
             <input type="submit" value="Submit initial conditions and predefined constants"/>
