@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import LinePlot from "../components/linePlot";
 
 
 export default function AnalysisResults() {
@@ -19,7 +20,14 @@ export default function AnalysisResults() {
     }, [])
     
     return (
-        <></>
+        <div style={{display: "flex", flexDirection: "row", width: "100vw", height: "100vh"}}>
+            <div style={{height: "100%", width: "400px", borderRight: "1px solid black"}}> {/* control panel */}
+                
+            </div>
+            <div width="calc(100% - 400px)" height="100%">
+                <LinePlot  height={"100%"} width={"100%"}/> {/* graph */}
+            </div>
+        </div>
     );
 
 }
