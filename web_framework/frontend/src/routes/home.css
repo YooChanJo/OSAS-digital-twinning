@@ -1,0 +1,61 @@
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f0f2f582;
+    position: relative; /* 비디오가 카드 아래로 배치되도록 설정 */
+    overflow: hidden; /* 비디오가 화면을 벗어나지 않도록 */
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 비디오가 화면을 가득 채우도록 설정 */
+    z-index: -1; /* 카드보다 뒤에 배치되도록 설정 */
+}
+
+.home-card {
+    width: 450px;
+    padding: 24px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.879); /* 카드 배경에 투명도를 추가하여 비디오가 보이도록 함 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    
+    z-index: 1; /* 카드가 비디오 위에 오도록 설정 */
+    
+}
+
+
+.title {
+    color: #188fff;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.description {
+    color: #595959;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #6db6fa;
+    color: white;
+    transition: background 0.3s;
+    margin: 10px 0; /* 위아래 간격 추가 */
+}
+
+button:hover {
+    background: #40a9ff;
+}

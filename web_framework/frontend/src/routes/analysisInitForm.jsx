@@ -1,45 +1,47 @@
-//import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
 import { useState } from "react";
+import { Button, Input, Form, Typography, Card } from "antd";
+import "./AnalysisInitForm.css";
+
+const { Title, Paragraph } = Typography;
 
 export default function AnalysisInitForm() {
     const navigate = useNavigate();
-    const onBackToHomeClick = () => {
-        navigate("/");
-    }
-    const onFormSubmit = async (e) => {
-        e.preventDefault();
-        const query = 
-            String(e.target[0].value) + "_" // Pv
-            + String(e.target[1].value) + "_" // Part
-            + String(e.target[2].value) + "_" // Vr
-            + String(e.target[3].value) + "_" // Pr
-            + String(e.target[4].value); // resolution
+
+    const onFinish = (values) => {
+        const query = `${values.Pv}_${values.Part}_${values.Vr}_${values.Pr}_${values.resolution}`;
         navigate(`/analysis/results/${query}`);
-    }
-    
-    return (<>
-        <h2>Welcome to blood O2 pressure analysis page</h2>
-        <form onSubmit={onFormSubmit} style={{border: "1px solid black", padding: "10px", marginBottom: "10px"}}>
-            <h2>Inital Conditions</h2>
-            <label htmlFor="Pv">O2 pressure of the venous blood (mmHg)</label><br />
-            <input id="Pv" type="number" defaultValue={40} required></input><br />
-            <label htmlFor="Part">Initial O2 pressure of the arterial blood (mmHg)</label><br />
-            <input id="Part" type="number" defaultValue={100} required></input><br />
-            <label htmlFor="Vr">Initial volume of remaining air (L) (2~3)</label><br />
-            <input id="Vr" type="number" defaultValue={2} required></input><br />
-            <label htmlFor="Pr">Inital O2 pressure of remaining air (mmHg)</label><br />
-            <input id="Pr" type="number" defaultValue={100} required></input><br />
-            <label htmlFor="resolution">Number of segments (resolution)</label><br />
-            <input id="resolution" type="number" defaultValue={10000} required></input>
-            <h2>Predefined Constants</h2>
-            <p>
-                Xo2 = 19.7_, A = 8 * 10^7 mm^2, L = 1mm, v = 1.33 mm/s, <br/>
-                T = 310K, R = 62.3637 mmHg * L / (mol * K)
-            </p>
-            <input type="submit" value="Submit initial conditions and predefined constants"/>
-        </form>
-        <button onClick={onBackToHomeClick}>Back to Home</button>
-    </>);
+    };
+
+    return (
+        <div className="analysis-container">
+            <Card className="analysis-card">
+                <Title level={2} className="title">Blood O₂ Pressure Analysis</Title>
+                <Paragraph className="description">
+                    Enter the initial conditions to analyze blood oxygen pressure.
+                </Paragraph>
+                <Form layout="vertical" onFinish={onFinish} initialValues={{ Pv: 40, Part: 100, Vr: 2, Pr: 100, resolution: 10000 }}>
+                    <Form.Item label="O₂ pressure of the venous blood (mmHg)" name="Pv" rules={[{ required: true }]}> 
+                        <Input type="number" />
+                    </Form.Item>
+                    <Form.Item label="Initial O₂ pressure of the arterial blood (mmHg)" name="Part" rules={[{ required: true }]}> 
+                        <Input type="number" />
+                    </Form.Item>
+                    <Form.Item label="Initial volume of remaining air (L) (2~3)" name="Vr" rules={[{ required: true }]}> 
+                        <Input type="number" />
+                    </Form.Item>
+                    <Form.Item label="Initial O₂ pressure of remaining air (mmHg)" name="Pr" rules={[{ required: true }]}> 
+                        <Input type="number" />
+                    </Form.Item>
+                    <Form.Item label="Number of segments (resolution)" name="resolution" rules={[{ required: true }]}> 
+                        <Input type="number" />
+                    </Form.Item>
+                    <div className="button-group">
+                        <Button type="primary" htmlType="submit">Submit</Button>
+                        <Button onClick={() => navigate("/")}>Back to Home</Button>
+                    </div>
+                </Form>
+            </Card>
+        </div>
+    );
 }
