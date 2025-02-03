@@ -14,5 +14,12 @@ module.exports.R = 62.3637;
 
 // O2 saturation(Pb)
 module.exports.SaO2 = (Pb) => (Pb ** 2.7) / (26.6 ** 2.7 + Pb ** 2.7);
+module.exports.dSaO2dPb = (Pb) => (
+    2.7 * (Pb ** 1.7) / (26.6 ** 2.7 + Pb ** 2.7) +
+    (Pb ** 2.7) * (2.7 * (Pb ** 1.7)) / ((26.6 ** 2.7 + Pb ** 2.7)**2)
+);
 // O2 content(Pb)
 module.exports.CoO2 = (Pb) => 4.464 * (10 ** -10) * (1.34 * 15 * this.SaO2(Pb) + 0.003 * Pb);
+
+module.exports.dCoO2dPb = (Pb) => 4.464 * (10 ** -10) * (1.34 * 15 * this.dSaO2dPb(Pb) + 0.003);
+module.exports.dPbdCoO2 = (Pb) => 1 / this.dCoO2dPb(Pb);
