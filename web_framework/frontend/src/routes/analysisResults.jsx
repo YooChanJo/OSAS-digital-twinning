@@ -18,6 +18,8 @@ export default function AnalysisResults() {
         setResolution(Number(queryArray[4]));
     }, [])
     
-    return <>{Pv + " " + Part + " " + Vr + " " + Pr + " " + resolution}</>;
+    return (
+        <></>
+    );
 
 }
