@@ -32,7 +32,7 @@ class Solver {
         this.resolution = initialConditions.resolution;
         this.dt = (this.predefines.L) / (this.resolution * this.predefines.v);
         this.history = [
-            History({
+            new History({
                 t: this.t,
                 Va: this.Va,
                 Pa: this.Pa,
@@ -53,18 +53,19 @@ class Solver {
         const gasExchangeConst = 4 * 3.14159265358979 * this.k * this.predefines.L / this.predefines.A;
         for(let i=1;i<input.Vin.length; i++) {
             this.t += this.dt;
-            this.Va = initialVa + Vin[i];
+            this.Va = initialVa + input.Vin[i];
+            if(i <= 10)console.log(this.na, this.k * this.predefines.A * (-this.Pa + this.intPb0toL() / this.predefines.L) * this.dt, + this.predefines.Xo2 * (input.Nin[i] - input.Nin[i - 1]));
             this.na += 
                 this.k * this.predefines.A * (-this.Pa + this.intPb0toL() / this.predefines.L) * this.dt
                 + this.predefines.Xo2 * (input.Nin[i] - input.Nin[i - 1]);
             // Pb updating
-            for(let j=1;j<this.resolution + 1;j++) {
-                Pb[j] = 
-                    Pb[j - 1]
-                    + this.predefines.dPbdCoO2(Pb[j-1]) * gasExchangeConst * (this.Pa - this.Pb[j-1]) * this.dt;
+            for(let j=this.resolution;j>=1;j--) {
+                this.Pb[j] = 
+                    this.Pb[j - 1]
+                    + this.predefines.dPbdCoO2(this.Pb[j-1]) * gasExchangeConst * (this.Pa - this.Pb[j-1]) * this.dt;
             }
             this.Pa = this.na * this.predefines.R * this.predefines.T / this.Va;
-            this.history.push(History({
+            this.history.push(new History({
                 t: this.t,
                 Va: this.Va,
                 Pa: this.Pa,
