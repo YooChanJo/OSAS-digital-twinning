@@ -1,0 +1,75 @@
+/* 전체 컨테이너 */
+.threeD-container {
+    position: relative;
+    text-align: center;
+  }
+  
+  /* 제목 스타일 */
+  .threeD-title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 모델 변경 버튼 */
+  .model-buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+  
+  .model-buttons button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .model-buttons button:hover {
+    background: #0056b3;
+  }
+  
+  /* 확대/축소 버튼 (오른쪽 하단 고정) */
+  .zoom-buttons {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .zoom-buttons button {
+    width: 50px;
+    height: 50px;
+    background: #28a745;
+    color: white;
+    border: none;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .zoom-buttons button:hover {
+    background: #218838;
+  }
+  

@@ -15,8 +15,8 @@ const router = createBrowserRouter([
     element: <AnalysisInitForm />
   },
   {
-    path: "/analysis/3Dmodels", // need to change path name to a more better one
-    element: <Analysis3Dmodels />
+     path: "/analysis/3Dmodels", // need to change path name to a more better one
+     element: <Analysis3Dmodels />
   },
 ]);
 
