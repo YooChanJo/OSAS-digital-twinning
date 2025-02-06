@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Carousel, Button } from "antd";
 import "./presentation.css";
+import pho from "../../images/blender/0.jpg";
 import phot from "../../images/blender/1.jpg";
 import photo from "../../images/blender/2.jpg";
 import photo0 from "../../images/blender/3.jpg";
@@ -11,11 +12,12 @@ import photo4 from "../../images/ansys/udfCodeImage.jpg";
 import photo5 from "../../images/ansys/난류모델.jpg";
 import photo6 from "../../images/ansys/solution_general_setting.jpg";
 import Video1 from "../../images/mesh movement_vrew.mp4";
-import Video2 from "../../images/scaled velocity field_vrew.mp4";
+import Video2 from "../../images/scaled_velocity_field_vrew.mp4";
 import Video3 from "../../images/velocity field_vrew.mp4";
 
 const mediaItems = [
-  { type: "photo", src: phot },
+    { type: "photo", src: pho },
+    { type: "photo", src: phot },
   { type: "photo", src: photo },
   { type: "photo", src: photo0 },
   { type: "photo", src: photo1 },
@@ -25,8 +27,9 @@ const mediaItems = [
   { type: "photo", src: photo5 },
   { type: "photo", src: photo6 },
   { type: "video", src: Video1 },
-  { type: "video", src: Video2 },
   { type: "video", src: Video3 },
+  { type: "video", src: Video2 },
+  
 ];
 
 const PresentationPage = () => {
