@@ -71,6 +71,7 @@ class Solver {
                 Pa: this.Pa,
                 Pb: this.Pb
             }));
+            if(i % 10000 == 0) console.log(i);
         }
     }
     getHistory() { return this.history; }
