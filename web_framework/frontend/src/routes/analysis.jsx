@@ -9,7 +9,7 @@ const { Title, Paragraph } = Typography;
 export default function Analysis() {
     const navigate = useNavigate();
     const [data, setData] = useState([]);
-    const [graphType, setGraphType] = useState("volume"); // "volume" or "pressure"
+    const [graphType, setGraphType] = useState("volume-alveoli"); // "volume-alveoli" or "pressure-alveoli" or "pressure-blood"
 
     // Simulate receiving new data sequentially
     const fetchData = async () => {
@@ -46,13 +46,15 @@ export default function Analysis() {
     };
 
     useEffect(() => {
-        drawGraph();
+        const divWidth = document.querySelector(".graph-div").offsetWidth;
+        const divHeight = document.querySelector(".graph-div").offsetHeight;
+        drawGraph(divWidth * 0.8, divHeight * 0.8, { top: 70, right: 50, bottom: 50, left: 50 });
     }, [data, graphType]);
 
-    const drawGraph = () => {
-        const width = 800;  // 그래프 너비 조정
-        const height = 500; // 그래프 높이 조정
-        const margin = { top: 70, right: 50, bottom: 50, left: 50 }; // 여백을 최소화
+    const drawGraph = (width, height, margin) => {
+        // const width = 800;  // 그래프 너비 조정
+        // const height = 500; // 그래프 높이 조정
+        // const margin = { top: 70, right: 50, bottom: 50, left: 50 }; // 여백을 최소화
     
         const svg = d3.select("#graph")
             .attr("width", width)
@@ -65,7 +67,7 @@ export default function Analysis() {
             .range([margin.left, width - margin.right]);
     
         const y = d3.scaleLinear()
-            .domain([0, d3.max(data, d => (graphType === "volume" ? d.volume : d.pressure))])
+            .domain([0, d3.max(data, d => (graphType === "volume-aveoli" ? d.volume : d.pressure))])
             .range([height - margin.bottom, margin.top]);
     
         svg.append("g")
@@ -74,7 +76,7 @@ export default function Analysis() {
             .enter()
             .append("circle")
             .attr("cx", d => x(d.time))
-            .attr("cy", d => y(graphType === "volume" ? d.volume : d.pressure))
+            .attr("cy", d => y(graphType === "volume-alveoli" ? d.volume : d.pressure))
             .attr("r", 3)
             .style("fill", "#707070")
             .transition()
