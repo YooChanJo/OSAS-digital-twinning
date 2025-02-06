@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Button, Input, Form, Typography, Card, Slider } from "antd";
 import "./analysis.css";
 import * as d3 from "d3";
@@ -9,7 +9,16 @@ const { Title, Paragraph } = Typography;
 export default function Analysis() {
     const navigate = useNavigate();
     const [data, setData] = useState([]);
-    const [graphType, setGraphType] = useState("volume-alveoli"); // "volume-alveoli" or "pressure-alveoli" or "pressure-blood"
+    const [graphType, setGraphType] = useState("Va"); // "Va" or "Pa" or "Part"
+    
+    const query = useParams().query;
+    const splitQuery = query.split('_');
+    const [Pv, setPv] = useState(Number(splitQuery[0]));
+    const [Part, setPart] = useState(Number(splitQuery[1]));
+    const [Vr, setVr] = useState(Number(splitQuery[2]));
+    const [Pr, setPr] = useState(Number(splitQuery[3]));
+    const [resolution, setResolution] = useState(Number(splitQuery[4]));
+    const [k, setK] = useState(Number(splitQuery[5]));
 
     // Simulate receiving new data sequentially
     const fetchData = async () => {
@@ -32,18 +41,14 @@ export default function Analysis() {
     };
 
     const onFinish = (values) => {
+        console.log(values)
         const query = `${values.Pv}_${values.Part}_${values.Vr}_${values.Pr}_${values.resolution}_${values.k}`;
-        navigate(`/analysis/results/${query}`);
+        navigate(`/analysis/blood-O2/${query}`);
     };
 
     useEffect(() => {
         fetchData();
     }, []);
-
-    // Toggle between volume and pressure graph
-    const toggleGraphType = (type) => {
-        setGraphType(type);
-    };
 
     useEffect(() => {
         const divWidth = document.querySelector(".graph-div").offsetWidth;
@@ -52,9 +57,6 @@ export default function Analysis() {
     }, [data, graphType]);
 
     const drawGraph = (width, height, margin) => {
-        // const width = 800;  // 그래프 너비 조정
-        // const height = 500; // 그래프 높이 조정
-        // const margin = { top: 70, right: 50, bottom: 50, left: 50 }; // 여백을 최소화
     
         const svg = d3.select("#graph")
             .attr("width", width)
@@ -76,7 +78,7 @@ export default function Analysis() {
             .enter()
             .append("circle")
             .attr("cx", d => x(d.time))
-            .attr("cy", d => y(graphType === "volume-alveoli" ? d.volume : d.pressure))
+            .attr("cy", d => y(graphType === "Va" ? d.volume : d.pressure))
             .attr("r", 3)
             .style("fill", "#707070")
             .transition()
@@ -114,25 +116,25 @@ export default function Analysis() {
                     <Form 
                         layout="vertical" 
                         onFinish={onFinish} 
-                        initialValues={{ Pv: 40, Part: 100, Vr: 2, Pr: 100, resolution: 10000, k: 50 }} // k의 초기값 50 설정
+                        initialValues={{ Pv: Pv, Part: Part, Vr: Vr, Pr: Pr, resolution: resolution, k: k }} // k의 초기값 50 설정
                     >
                         <Form.Item label="O₂ pressure of the venous blood (mmHg)" name="Pv" rules={[{ required: true }]}> 
-                            <Input type="number" />
+                            <Input type="number" value={Pv} onChange={(v) => setPv(v)} />
                         </Form.Item>
                         <Form.Item label="Initial O₂ pressure of the arterial blood (mmHg)" name="Part" rules={[{ required: true }]}> 
-                            <Input type="number" />
+                            <Input type="number" value={Part} onChange={(v) => setPart(v)} />
                         </Form.Item>
                         <Form.Item label="Initial volume of remaining air (L) (2~3)" name="Vr" rules={[{ required: true }]}> 
-                            <Input type="number" />
+                            <Input type="number" value={Vr} onChange={(v) => setVr(v)} />
                         </Form.Item>
                         <Form.Item label="Initial O₂ pressure of remaining air (mmHg)" name="Pr" rules={[{ required: true }]}> 
-                            <Input type="number" />
+                            <Input type="number" value={Pr} onChange={(v) => setPr(v)} />
                         </Form.Item>
                         <Form.Item label="Number of segments (resolution)" name="resolution" rules={[{ required: true }]}> 
-                            <Input type="number" />
+                            <Input type="number" value={resolution} onChange={(v) => setResolution(v)} />
                         </Form.Item>
-                        <Form.Item label="k value (0-100)" name="k">
-                            <Slider min={0} max={100} />
+                        <Form.Item label="k value (1-10) * e-9 (mol / (m^2 * mmHg))" name="k">
+                            <Slider min={0.1} max={10} step={0.1} value={k} onChange={(v) => setK(v)} />
                         </Form.Item>
                         <div className="button-group">
                             <Button type="primary" htmlType="submit">Submit</Button>
@@ -146,9 +148,9 @@ export default function Analysis() {
                     <svg id="graph"></svg>
                 </div>
                 <div className="graph-button-div">
-                    <Button className="graph-button" onClick={() => toggleGraphType("volume-alveoli")}>Va</Button>
-                    <Button className="graph-button" onClick={() => toggleGraphType("pressure-alveoli")}>Pa</Button>
-                    <Button className="graph-button" onClick={() => toggleGraphType("volume-blood")}>Vb</Button>
+                    <Button className="graph-button" onClick={() => setGraphType("Va")} style={{backgroundColor: graphType === "Va" ? "orange" : "#40a9ff"}}>Va</Button>
+                    <Button className="graph-button" onClick={() => setGraphType("Pa")} style={{backgroundColor: graphType === "Pa" ? "orange" : "#40a9ff"}}>Pa</Button>
+                    <Button className="graph-button" onClick={() => setGraphType("Vart")} style={{backgroundColor: graphType === "Vart" ? "orange" : "#40a9ff"}}>Vart</Button>
                 </div>
             </div>
         </div>

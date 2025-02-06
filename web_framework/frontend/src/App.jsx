@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element: <Home />
   },
   {
-    path: "/analysis/blood-O2", // need to change path name to a more better one
+    path: "/analysis/blood-O2/:query", // need to change path name to a more better one
     element: <Analysis />
   },
   {
