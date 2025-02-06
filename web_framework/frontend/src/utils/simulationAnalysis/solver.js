@@ -1,5 +1,4 @@
-const defaultPredefines = require("./defaultPredefines");
-const sampleGenerator = require("./sampleGenerator");
+import defaultPredefines from "./defaultPredefines";
 
 class History {
     constructor(currentStatus) {
@@ -10,13 +9,13 @@ class History {
     }
 }
 
-class Solver {
-    constructor(initialConditions, k, predefines) {
+export default class Solver {
+    constructor(initialConditions, predefines) {
         // predefined constants and functions
         if(!predefines) this.predefines = defaultPredefines; // predefines 정의 안됨
         else this.predefines = predefines;
         // k
-        this.k = k;
+        this.k = initialConditions.k;
         // properties
         this.t = 0;
         this.Va = initialConditions.Vr;
@@ -40,6 +39,9 @@ class Solver {
             })
         ];
     }
+    refinedHistory() {
+        return this.history.map(h => {return {t: h.t, Va: h.Va, Pa: h.Pa, Part: h.Pb[this.resolution]} });
+    }
     intPb0toL() {
         let sum = 0;
         const dx = this.predefines.L / this.resolution;
@@ -48,9 +50,10 @@ class Solver {
         }
         return sum;
     }
-    evolve(input) { // contains Vin, Nin vectors spaced with dt both should start and end with 0
+    evolve(input, callback) { // contains Vin, Nin vectors spaced with dt both should start and end with 0
         const initialVa = this.Va;
         const gasExchangeConst = 4 * 3.14159265358979 * this.k * this.predefines.L / this.predefines.A;
+        if(!callback) callback = (t, Va, Pa, Pb) => {};
         for(let i=1;i<input.Vin.length; i++) {
             this.t += this.dt;
             this.Va = initialVa + input.Vin[i];
@@ -72,27 +75,8 @@ class Solver {
                 Pb: this.Pb
             }));
             if(i % 10000 == 0) console.log(i);
+            callback();
         }
     }
     getHistory() { return this.history; }
 }
-
-module.exports = { Solver };
-
-/*
-    Solver {
-        t
-        predefines { Xo2, A, L, v, T, R, SaO2, CoO2 }
-        na
-        Va, Pa
-        resolution, dt
-        Pb = [   ] // size resolution + 1 | meaningful data from [1]
-        k,
-        history
-    }
-    initialConditions {
-        Pv, Part, Vr, Pr,
-        resolution, //  of blood segment --> values assign to 1 ~ resolution
-        // 
-    }
-*/

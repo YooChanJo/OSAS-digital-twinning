@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Button, Input, Form, Typography, Card, Slider } from "antd";
 import "./analysis.css";
 import * as d3 from "d3";
+import Solver from "../utils/simulationAnalysis/solver";
+import { NinSampleGenerator, VinSampleGenerator } from "../utils/simulationAnalysis/sampleGenerator";
 
 const { Title, Paragraph } = Typography;
 
@@ -19,36 +21,32 @@ export default function Analysis() {
     const [Pr, setPr] = useState(Number(splitQuery[3]));
     const [resolution, setResolution] = useState(Number(splitQuery[4]));
     const [k, setK] = useState(Number(splitQuery[5]));
+    const [activated] = useState(Boolean(splitQuery[6]));
 
-    // Simulate receiving new data sequentially
-    const fetchData = async () => {
-        const newData = await fetchDataSequentially(); // your data fetching logic with await
-        setData(newData);
-    };
-
-    const fetchDataSequentially = () => {
-        // Simulate real-time data fetching
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve([
-                    { time: 0, volume: 2, pressure: 100 },
-                    { time: 1, volume: 2.1, pressure: 98 },
-                    { time: 2, volume: 2.3, pressure: 95 },
-                    // Add more data points here...
-                ]);
-            }, 1000);
-        });
-    };
+    useEffect(() => {
+        const calculateDataAndUpdate = async () => {
+            console.time("calculation time");
+            const solver = new Solver({ Pv, Part, Vr, Pr, resolution, k });
+            const VinSample = VinSampleGenerator(2, solver.dt);
+            const NinSample = NinSampleGenerator(2, solver.dt);
+            solver.evolve(
+                { Vin: VinSample, Nin: NinSample },
+                () => setData(curr => curr.push({ t: solver.t, Va: solver.Va, Pa: solver.Pa, Part: solver.Pv[solver.resolution] })),
+            );
+            console.timeEnd("calculation time");
+        }
+        if(splitQuery.length !== 7) navigate("/");
+        if(activated) { // start calculation
+            calculateDataAndUpdate();
+        }
+    }, []);
 
     const onFinish = (values) => {
         console.log(values)
         const query = `${values.Pv}_${values.Part}_${values.Vr}_${values.Pr}_${values.resolution}_${values.k}`;
-        navigate(`/analysis/blood-O2/${query}`);
+        navigate(`/analysis/blood-O2/${query}_True`);
     };
 
-    useEffect(() => {
-        fetchData();
-    }, []);
 
     useEffect(() => {
         const divWidth = document.querySelector(".graph-div").offsetWidth;

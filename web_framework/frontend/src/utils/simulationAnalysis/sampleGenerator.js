@@ -32,4 +32,4 @@ const NinSampleGenerator = (cycles, dt) => {
     return result;
 }
 
-module.exports = { VinSampleGenerator, NinSampleGenerator };
+export { VinSampleGenerator, NinSampleGenerator };

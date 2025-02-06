@@ -9,7 +9,7 @@ export default function Home() {
     const navigate = useNavigate();
 
     const onAnalysisPageClick = () => {
-        navigate("/analysis/blood-O2/40_100_2_100_10000_5");
+        navigate("/analysis/blood-O2/40_100_2_100_10000_5_False");
     };
     
     const on3DAnalysisPageClick = () => {
