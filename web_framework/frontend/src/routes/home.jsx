@@ -1,17 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import { Button, Card, Typography } from "antd";
 import "./home.css";
-import backgroundVideo from "../../images/background-video.mp4"; 
+import backgroundVideo from "../../images/background-video.mp4";
 
 const { Title, Paragraph } = Typography;
 
 export default function Home() {
     const navigate = useNavigate();
+
     const onAnalysisPageClick = () => {
         navigate("/analysis/init-form");
     };
+    
     const on3DAnalysisPageClick = () => {
         navigate("/analysis/3Dmodels");
+    };
+
+    const onPresentationPageClick = () => {
+        navigate("/presentation");
     };
 
     return (
@@ -29,6 +35,9 @@ export default function Home() {
                 </Button>
                 <Button type="primary" size="large" onClick={on3DAnalysisPageClick}>
                     To 3D model Analysis Page
+                </Button>
+                <Button type="primary" size="large" onClick={onPresentationPageClick}>
+                    To Presentation Page
                 </Button>
             </Card>
         </div>

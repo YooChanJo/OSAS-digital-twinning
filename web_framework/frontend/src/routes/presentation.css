@@ -1,0 +1,23 @@
+.presentation-container {
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 99.65vh;
+    background-color: black;
+  }
+  
+  .media-content {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+    display: block;
+    margin: auto;  
+  }
+  
