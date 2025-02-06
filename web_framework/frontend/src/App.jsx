@@ -1,7 +1,7 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './routes/home';
-import AnalysisInitForm from './routes/analysisInitForm';
+import Analysis from './routes/analysis';
 import Presentation from './routes/presentation'; // 프레젠테이션 페이지 추가
 import Analysis3Dmodels from './routes/3dModelView';
 
@@ -11,8 +11,8 @@ const router = createBrowserRouter([
     element: <Home />
   },
   {
-    path: "/analysis/init-form", // need to change path name to a more better one
-    element: <AnalysisInitForm />
+    path: "/analysis/blood-O2", // need to change path name to a more better one
+    element: <Analysis />
   },
   {
      path: "/analysis/3Dmodels", // need to change path name to a more better one

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Input, Form, Typography, Card, Slider } from "antd";
-import "./AnalysisInitForm.css";
+import "./analysis.css";
 import * as d3 from "d3";
 
 const { Title, Paragraph } = Typography;
 
-export default function AnalysisInitForm() {
+export default function Analysis() {
     const navigate = useNavigate();
     const [data, setData] = useState([]);
     const [graphType, setGraphType] = useState("volume"); // "volume" or "pressure"
@@ -103,46 +103,51 @@ export default function AnalysisInitForm() {
 
     return (
         <div className="analysis-container">
-            <Card className="analysis-card">
-                <Title level={2} className="title">Blood O₂ Pressure Analysis</Title>
-                <Paragraph className="description">
-                    Enter the initial conditions to analyze blood oxygen pressure.
-                </Paragraph>
-                <Form 
-                    layout="vertical" 
-                    onFinish={onFinish} 
-                    initialValues={{ Pv: 40, Part: 100, Vr: 2, Pr: 100, resolution: 10000, k: 50 }} // k의 초기값 50 설정
-                >
-                    <Form.Item label="O₂ pressure of the venous blood (mmHg)" name="Pv" rules={[{ required: true }]}> 
-                        <Input type="number" />
-                    </Form.Item>
-                    <Form.Item label="Initial O₂ pressure of the arterial blood (mmHg)" name="Part" rules={[{ required: true }]}> 
-                        <Input type="number" />
-                    </Form.Item>
-                    <Form.Item label="Initial volume of remaining air (L) (2~3)" name="Vr" rules={[{ required: true }]}> 
-                        <Input type="number" />
-                    </Form.Item>
-                    <Form.Item label="Initial O₂ pressure of remaining air (mmHg)" name="Pr" rules={[{ required: true }]}> 
-                        <Input type="number" />
-                    </Form.Item>
-                    <Form.Item label="Number of segments (resolution)" name="resolution" rules={[{ required: true }]}> 
-                        <Input type="number" />
-                    </Form.Item>
-                    <Form.Item label="k value (0-100)" name="k">
-                        <Slider min={0} max={100} />
-                    </Form.Item>
-                    <div className="button-group">
-                        <Button type="primary" htmlType="submit">Submit</Button>
-                        <Button onClick={() => navigate("/")}>Back to Home</Button>
-                    </div>
-                </Form>
-            </Card>
+            <div className="card-div">
+                <Card className="analysis-card">
+                    <Title level={2} className="title">Blood O₂ Pressure Analysis</Title>
+                    <Paragraph className="description">
+                        Enter the initial conditions to analyze blood oxygen pressure.
+                    </Paragraph>
+                    <Form 
+                        layout="vertical" 
+                        onFinish={onFinish} 
+                        initialValues={{ Pv: 40, Part: 100, Vr: 2, Pr: 100, resolution: 10000, k: 50 }} // k의 초기값 50 설정
+                    >
+                        <Form.Item label="O₂ pressure of the venous blood (mmHg)" name="Pv" rules={[{ required: true }]}> 
+                            <Input type="number" />
+                        </Form.Item>
+                        <Form.Item label="Initial O₂ pressure of the arterial blood (mmHg)" name="Part" rules={[{ required: true }]}> 
+                            <Input type="number" />
+                        </Form.Item>
+                        <Form.Item label="Initial volume of remaining air (L) (2~3)" name="Vr" rules={[{ required: true }]}> 
+                            <Input type="number" />
+                        </Form.Item>
+                        <Form.Item label="Initial O₂ pressure of remaining air (mmHg)" name="Pr" rules={[{ required: true }]}> 
+                            <Input type="number" />
+                        </Form.Item>
+                        <Form.Item label="Number of segments (resolution)" name="resolution" rules={[{ required: true }]}> 
+                            <Input type="number" />
+                        </Form.Item>
+                        <Form.Item label="k value (0-100)" name="k">
+                            <Slider min={0} max={100} />
+                        </Form.Item>
+                        <div className="button-group">
+                            <Button type="primary" htmlType="submit">Submit</Button>
+                            <Button onClick={() => navigate("/")}>Back to Home</Button>
+                        </div>
+                    </Form>
+                </Card>
+            </div>
             <div className="graph-container">
-                <div className="graph-buttons">
-                    <Button className="graph-button" onClick={() => toggleGraphType("volume")}>V</Button>
-                    <Button className="graph-button" onClick={() => toggleGraphType("pressure")}>P</Button>
+                <div className="graph-div">
+                    <svg id="graph"></svg>
                 </div>
-                <svg id="graph"></svg>
+                <div className="graph-button-div">
+                    <Button className="graph-button" onClick={() => toggleGraphType("volume-alveoli")}>Va</Button>
+                    <Button className="graph-button" onClick={() => toggleGraphType("pressure-alveoli")}>Pa</Button>
+                    <Button className="graph-button" onClick={() => toggleGraphType("volume-blood")}>Vb</Button>
+                </div>
             </div>
         </div>
     );

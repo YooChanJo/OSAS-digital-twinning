@@ -9,7 +9,7 @@ export default function Home() {
     const navigate = useNavigate();
 
     const onAnalysisPageClick = () => {
-        navigate("/analysis/init-form");
+        navigate("/analysis/blood-O2");
     };
     
     const on3DAnalysisPageClick = () => {

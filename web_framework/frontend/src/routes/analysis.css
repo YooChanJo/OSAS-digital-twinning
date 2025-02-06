@@ -1,10 +1,20 @@
 .analysis-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     height: 100vh;
     width: 100vw;
     background-color: #f0f2f5;
+}
+
+.card-div {
+    height: 100%;
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .analysis-card {
@@ -13,8 +23,6 @@
     background: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
-
-
 
 #graph {
     background-color: #faf9f8;  /* 배경색을 흰색으로 설정 */
@@ -47,7 +55,7 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    transition: background 0.3s;
+    transition: 0.3s;
 }
 
 .button-group button[type="submit"] {
@@ -69,19 +77,28 @@
 }
 
 .graph-container {
-    width: calc(100vw - 500px);
+    width: calc(100% - 550px);
     height: 100%;
-    margin-left: 3vw;
-    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;  /* 버튼을 화면 하단에 고정시키기 위해 추가 */
 }
 
-.graph-buttons {
+.graph-div {
+    width: 100%;
+    height: calc(100% - 70px);
     display: flex;
     justify-content: center;
-    position: absolute;  /* 버튼을 하단에 고정 */
-    bottom: 20px;  /* 하단에서의 간격 */
+    align-items: center;
+    
+}
+
+.graph-button-div {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    bottom: 70px;  /* 하단에서의 간격 */
     gap: 20px;
 }
 
@@ -97,7 +114,7 @@
     background-color: #1890ff;
     border: none;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: 0.3s;
 }
 
 .graph-button:hover {
