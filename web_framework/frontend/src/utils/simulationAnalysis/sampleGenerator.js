@@ -9,7 +9,7 @@ const EXHALATION = PERIOD - INHALATION;
 const VinSampleFunction = (t) => {
     t -= Math.floor(t / PERIOD) * PERIOD
     t *= PI / ( 2 * PERIOD );
-    return Math.sqrt(3) * 3 / 4  * Math.sin(t) * Math.cos(t) * Math.cos(t);
+    return Math.sqrt(3) * 3 / 4  * Math.sin(t) * Math.cos(t) * Math.cos(t) / 1000;
 }
 const NinSampleFunction = (t) => {
     t -= Math.floor(t / PERIOD) * PERIOD

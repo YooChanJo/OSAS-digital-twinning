@@ -24,11 +24,6 @@ export default function Analysis() {
     const [activated, setActivated] = useState(splitQuery[6] == "True");
     const [ renavigateCall, setRenavigateCall ] = useState(false);
     
-    useEffect(() => {
-        const divWidth = document.querySelector(".graph-div").offsetWidth;
-        const divHeight = document.querySelector(".graph-div").offsetHeight;
-        drawGraph(divWidth * 0.8, divHeight * 0.8, { top: 70, right: 50, bottom: 50, left: 50 });
-    }, [data, graphType]);
     const calculateDataAndUpdate = () => {
         console.time("calculation time");
         const solver = new Solver({ Pv, Part, Vr, Pr, resolution, k: k * 1e-9 });
@@ -57,11 +52,20 @@ export default function Analysis() {
         }, 3);
     };
     useEffect(() => {
+        const divWidth = document.querySelector(".graph-div").offsetWidth;
+        const divHeight = document.querySelector(".graph-div").offsetHeight;
+        drawGraph(divWidth * 0.8, divHeight * 0.8, { top: 70, right: 50, bottom: 50, left: 50 });
         if(splitQuery.length !== 7) navigate("/");
         if(activated) { // start calculation
             calculateDataAndUpdate();
         }
     }, []);
+    
+    useEffect(() => {
+        const divWidth = document.querySelector(".graph-div").offsetWidth;
+        const divHeight = document.querySelector(".graph-div").offsetHeight;
+        drawGraph(divWidth * 0.8, divHeight * 0.8, { top: 70, right: 50, bottom: 50, left: 50 });
+    }, [data, graphType]);
 
     const onFinish = (values) => {
         if(activated) {
@@ -91,21 +95,12 @@ export default function Analysis() {
         // X 축 스타일 변경 (얇은 회색 선)
         svg.append("g")
             .attr("transform", `translate(0,${height - margin.bottom})`)
-            .call(d3.axisBottom(x))
-            
-            // .selectAll("path, line, text")
-            // .style("stroke", "#707070")  // 진한 회색 축
-            // .style("fill", "#707070")    // 텍스트 진한 회색
-            // .style("stroke-width", 0.05);   // 얇은 선
+            .call(d3.axisBottom(x));
     
         // Y 축 스타일 변경 (얇은 회색 선)
         svg.append("g")
             .attr("transform", `translate(${margin.left},0)`)
-            .call(d3.axisLeft(y))
-            // .selectAll("path, line, text")
-            // .style("stroke", "#707070")  // 진한 회색 축
-            // .style("fill", "#707070")    // 텍스트 진한 회색
-            // .style("stroke-width", 0.05);   // 얇은 선
+            .call(d3.axisLeft(y));
 
         const line = d3.line()
         .x(data => x(data.t))
@@ -116,7 +111,8 @@ export default function Analysis() {
         .attr("fill", "none")
         .attr("stroke", "steelblue")
         .attr("stroke-width", 1)
-        .attr("d", line);
+        .attr("d", line)
+        .classed("line", true);
 
         // .selectAll("circle")
         // .data(data)
