@@ -19,9 +19,9 @@ const dSaO2dPb = (Pb) => (
     (Pb ** 2.7) * (2.7 * (Pb ** 1.7)) / ((26.6 ** 2.7 + Pb ** 2.7)**2)
 );
 // O2 content(Pb)
-const CoO2 = (Pb) => 4.464 * (10 ** -10) * (1.34 * 15 * this.SaO2(Pb) + 0.003 * Pb);
+const CoO2 = (Pb) => 4.464 * (10 ** -10) * (1.34 * 15 * SaO2(Pb) + 0.003 * Pb);
 
-const dCoO2dPb = (Pb) => 4.464 * (10 ** -10) * (1.34 * 15 * this.dSaO2dPb(Pb) + 0.003);
-const dPbdCoO2 = (Pb) => 1 / this.dCoO2dPb(Pb);
+const dCoO2dPb = (Pb) => 4.464 * (10 ** -10) * (1.34 * 15 * dSaO2dPb(Pb) + 0.003);
+const dPbdCoO2 = (Pb) => 1 / dCoO2dPb(Pb);
 
 export default { Xo2, A, L, v, T, R, SaO2, dSaO2dPb, CoO2, dCoO2dPb, dPbdCoO2 };

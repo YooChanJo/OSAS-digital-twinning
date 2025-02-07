@@ -9,7 +9,7 @@ class History {
     }
 }
 
-export default class Solver {
+class Solver {
     constructor(initialConditions, predefines) {
         // predefined constants and functions
         if(!predefines) this.predefines = defaultPredefines; // predefines 정의 안됨
@@ -38,6 +38,8 @@ export default class Solver {
                 Pb: this.Pb,
             })
         ];
+        this.input = null;
+        this.stepTracker = 1;
     }
     refinedHistory() {
         return this.history.map(h => {return {t: h.t, Va: h.Va, Pa: h.Pa, Part: h.Pb[this.resolution]} });
@@ -50,17 +52,21 @@ export default class Solver {
         }
         return sum;
     }
-    evolve(input, callback) { // contains Vin, Nin vectors spaced with dt both should start and end with 0
+    attachInput(input) {
+        this.input = input;
+        this.stepTracker = 1;
+    }
+    getInputLength() { return this.input.Nin.length; }
+    evolveSteps(steps) { // contains Vin, Nin vectors spaced with dt both should start and end with 0
         const initialVa = this.Va;
         const gasExchangeConst = 4 * 3.14159265358979 * this.k * this.predefines.L / this.predefines.A;
-        if(!callback) callback = (t, Va, Pa, Pb) => {};
-        for(let i=1;i<input.Vin.length; i++) {
+        for(let i=this.stepTracker;i<this.stepTracker + steps; i++) {
             this.t += this.dt;
-            this.Va = initialVa + input.Vin[i];
-            if(i <= 10)console.log(this.na, this.k * this.predefines.A * (-this.Pa + this.intPb0toL() / this.predefines.L) * this.dt, + this.predefines.Xo2 * (input.Nin[i] - input.Nin[i - 1]));
+            this.Va = initialVa + this.input.Vin[i];
+            if(i <= 10) console.log(this.na, this.k * this.predefines.A * (-this.Pa + this.intPb0toL() / this.predefines.L) * this.dt, + this.predefines.Xo2 * (this.input.Nin[i] - this.input.Nin[i - 1]));
             this.na += 
                 this.k * this.predefines.A * (-this.Pa + this.intPb0toL() / this.predefines.L) * this.dt
-                + this.predefines.Xo2 * (input.Nin[i] - input.Nin[i - 1]);
+                + this.predefines.Xo2 * (this.input.Nin[i] - this.input.Nin[i - 1]);
             // Pb updating
             for(let j=this.resolution;j>=1;j--) {
                 this.Pb[j] = 
@@ -74,9 +80,10 @@ export default class Solver {
                 Pa: this.Pa,
                 Pb: this.Pb
             }));
-            if(i % 10000 == 0) console.log(i);
-            callback();
         }
+        this.stepTracker += steps;
     }
     getHistory() { return this.history; }
 }
+
+export { Solver, History };

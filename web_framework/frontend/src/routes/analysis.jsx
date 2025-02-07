@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Button, Input, Form, Typography, Card, Slider } from "antd";
 import "./analysis.css";
 import * as d3 from "d3";
-import Solver from "../utils/simulationAnalysis/solver";
+import { Solver } from "../utils/simulationAnalysis/solver";
 import { NinSampleGenerator, VinSampleGenerator } from "../utils/simulationAnalysis/sampleGenerator";
 
 const { Title, Paragraph } = Typography;
@@ -21,20 +21,38 @@ export default function Analysis() {
     const [Pr, setPr] = useState(Number(splitQuery[3]));
     const [resolution, setResolution] = useState(Number(splitQuery[4]));
     const [k, setK] = useState(Number(splitQuery[5]));
-    const [activated] = useState(Boolean(splitQuery[6]));
-
+    const [activated] = useState(splitQuery[6] == "True");
+    
     useEffect(() => {
-        const calculateDataAndUpdate = async () => {
-            console.time("calculation time");
-            const solver = new Solver({ Pv, Part, Vr, Pr, resolution, k });
-            const VinSample = VinSampleGenerator(2, solver.dt);
-            const NinSample = NinSampleGenerator(2, solver.dt);
-            solver.evolve(
-                { Vin: VinSample, Nin: NinSample },
-                () => setData(curr => curr.push({ t: solver.t, Va: solver.Va, Pa: solver.Pa, Part: solver.Pv[solver.resolution] })),
-            );
-            console.timeEnd("calculation time");
-        }
+        const divWidth = document.querySelector(".graph-div").offsetWidth;
+        const divHeight = document.querySelector(".graph-div").offsetHeight;
+        drawGraph(divWidth * 0.8, divHeight * 0.8, { top: 70, right: 50, bottom: 50, left: 50 });
+    }, [data, graphType]);
+    const calculateDataAndUpdate = () => {
+        console.time("calculation time");
+        const solver = new Solver({ Pv, Part, Vr, Pr, resolution, k: k * 1e-9 });
+        const VinSample = VinSampleGenerator(2, solver.dt);
+        const NinSample = NinSampleGenerator(2, solver.dt);
+        solver.attachInput({Vin: VinSample, Nin: NinSample});
+        const inputLength = solver.getInputLength();
+        let tmpData = [];
+        console.log("working");
+        let index = 1;
+        const interval = setInterval(() => {
+            if(index >= inputLength) {
+                console.timeEnd("calculation time");
+                clearInterval(interval);
+            }
+            else {
+                solver.evolveSteps(10);
+                index += 10;
+                tmpData = solver.refinedHistory();
+                setData(tmpData);
+                console.log(tmpData);
+            }
+        }, 100);
+    };
+    useEffect(() => {
         if(splitQuery.length !== 7) navigate("/");
         if(activated) { // start calculation
             calculateDataAndUpdate();
@@ -42,17 +60,9 @@ export default function Analysis() {
     }, []);
 
     const onFinish = (values) => {
-        console.log(values)
         const query = `${values.Pv}_${values.Part}_${values.Vr}_${values.Pr}_${values.resolution}_${values.k}`;
         navigate(`/analysis/blood-O2/${query}_True`);
     };
-
-
-    useEffect(() => {
-        const divWidth = document.querySelector(".graph-div").offsetWidth;
-        const divHeight = document.querySelector(".graph-div").offsetHeight;
-        drawGraph(divWidth * 0.8, divHeight * 0.8, { top: 70, right: 50, bottom: 50, left: 50 });
-    }, [data, graphType]);
 
     const drawGraph = (width, height, margin) => {
     
@@ -63,43 +73,54 @@ export default function Analysis() {
         svg.selectAll("*").remove(); // 이전 그래프 제거
     
         const x = d3.scaleLinear()
-            .domain([0, d3.max(data, d => d.time)])
+            .domain([0, d3.max(data, d => d.t)])
             .range([margin.left, width - margin.right]);
     
         const y = d3.scaleLinear()
-            .domain([0, d3.max(data, d => (graphType === "volume-aveoli" ? d.volume : d.pressure))])
+            .domain([d3.min(data, d => (graphType === "Va" ? d.Va : graphType === "Pa" ? d.Pa : d.Part)), d3.max(data, d => (graphType === "Va" ? d.Va : graphType === "Pa" ? d.Pa : d.Part))])
             .range([height - margin.bottom, margin.top]);
-    
-        svg.append("g")
-            .selectAll("circle")
-            .data(data)
-            .enter()
-            .append("circle")
-            .attr("cx", d => x(d.time))
-            .attr("cy", d => y(graphType === "Va" ? d.volume : d.pressure))
-            .attr("r", 3)
-            .style("fill", "#707070")
-            .transition()
-            .duration(500)
-            .ease(d3.easeCircleIn);
     
         // X 축 스타일 변경 (얇은 회색 선)
         svg.append("g")
             .attr("transform", `translate(0,${height - margin.bottom})`)
             .call(d3.axisBottom(x))
-            .selectAll("path, line, text")
-            .style("stroke", "#707070")  // 진한 회색 축
-            .style("fill", "#707070")    // 텍스트 진한 회색
-            .style("stroke-width", 0.05);   // 얇은 선
+            
+            // .selectAll("path, line, text")
+            // .style("stroke", "#707070")  // 진한 회색 축
+            // .style("fill", "#707070")    // 텍스트 진한 회색
+            // .style("stroke-width", 0.05);   // 얇은 선
     
         // Y 축 스타일 변경 (얇은 회색 선)
         svg.append("g")
             .attr("transform", `translate(${margin.left},0)`)
             .call(d3.axisLeft(y))
-            .selectAll("path, line, text")
-            .style("stroke", "#707070")  // 진한 회색 축
-            .style("fill", "#707070")    // 텍스트 진한 회색
-            .style("stroke-width", 0.05);   // 얇은 선
+            // .selectAll("path, line, text")
+            // .style("stroke", "#707070")  // 진한 회색 축
+            // .style("fill", "#707070")    // 텍스트 진한 회색
+            // .style("stroke-width", 0.05);   // 얇은 선
+
+        const line = d3.line()
+        .x(data => x(data.t))
+        .y(data => y((graphType === "Va" ? data.Va : graphType === "Pa" ? data.Pa : data.Part)));
+
+        svg.append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", "steelblue")
+        .attr("stroke-width", 1)
+        .attr("d", line);
+
+        // .selectAll("circle")
+        // .data(data)
+        // .enter()
+        // .append("circle")
+        // .attr("cx", d => x(d.time))
+        // .attr("cy", d => y((graphType === "Va" ? d.Va : graphType === "Pa" ? d.Pa : d.Part)))
+        // .attr("r", 3)
+        // .style("fill", "#707070")
+        // .transition()
+        // .duration(500)
+        // .ease(d3.easeCircleIn);
     };
     
 
