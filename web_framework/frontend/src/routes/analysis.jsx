@@ -21,7 +21,8 @@ export default function Analysis() {
     const [Pr, setPr] = useState(Number(splitQuery[3]));
     const [resolution, setResolution] = useState(Number(splitQuery[4]));
     const [k, setK] = useState(Number(splitQuery[5]));
-    const [activated] = useState(splitQuery[6] == "True");
+    const [activated, setActivated] = useState(splitQuery[6] == "True");
+    const [ renavigateCall, setRenavigateCall ] = useState(false);
     
     useEffect(() => {
         const divWidth = document.querySelector(".graph-div").offsetWidth;
@@ -38,19 +39,22 @@ export default function Analysis() {
         let tmpData = [];
         console.log("working");
         let index = 1;
+        let running = true;
         const interval = setInterval(() => {
-            if(index >= inputLength) {
-                console.timeEnd("calculation time");
+            if(renavigateCall) {
                 clearInterval(interval);
-            }
-            else {
-                solver.evolveSteps(10);
-                index += 10;
+            } else if(index >= inputLength) {
+                console.timeEnd("calculation time");
+                setActivated(false);
+                clearInterval(interval);
+            } else {
+                solver.evolveSteps(1);
+                index += 1;
                 tmpData = solver.refinedHistory();
                 setData(tmpData);
                 console.log(tmpData);
             }
-        }, 100);
+        }, 3);
     };
     useEffect(() => {
         if(splitQuery.length !== 7) navigate("/");
@@ -60,8 +64,12 @@ export default function Analysis() {
     }, []);
 
     const onFinish = (values) => {
+        if(activated) {
+            setRenavigateCall(true);
+        }
         const query = `${values.Pv}_${values.Part}_${values.Vr}_${values.Pr}_${values.resolution}_${values.k}`;
         navigate(`/analysis/blood-O2/${query}_True`);
+        location.reload();
     };
 
     const drawGraph = (width, height, margin) => {
